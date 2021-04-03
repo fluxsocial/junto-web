@@ -1,5 +1,5 @@
 <template>
-  <div class="communities-list">
+  <div class="left-nav__communities-list">
     <community-avatar></community-avatar>
     <community-avatar></community-avatar>
     <community-avatar></community-avatar>
@@ -15,9 +15,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.communities-list {
+.left-nav__communities-list {
   width: 100%;
-  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;

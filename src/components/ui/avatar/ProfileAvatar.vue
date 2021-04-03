@@ -1,5 +1,5 @@
 <template>
-  <div class="community-avatar">&nbsp;</div>
+  <div class="profile-avatar">&nbsp;</div>
 </template>
 
 <script>
@@ -9,12 +9,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.community-avatar {
+.profile-avatar {
   height: 5rem;
   width: 5rem;
   background-color: #eee;
   border-radius: 100px;
-  margin-bottom: 2rem;
   background-image: url("../../../../src/assets/images/junto_app_icon.png");
   background-size: cover;
 }
