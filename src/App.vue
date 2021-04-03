@@ -7,6 +7,8 @@ $junto-primary-dark: #000;
 $junto-primary: #333;
 $junto-primary-medium: #555;
 $junto-primary-light: #999;
+$junto-border-color: #eee;
+
 *,
 *::before,
 *::after {
