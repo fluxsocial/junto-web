@@ -66,6 +66,10 @@ export default {
 
       &--icon {
         height: 1.4rem;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
 
