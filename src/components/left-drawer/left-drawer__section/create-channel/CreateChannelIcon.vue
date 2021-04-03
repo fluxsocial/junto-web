@@ -34,12 +34,19 @@ export default {
 
 <style lang="scss">
 .createChannelIcon {
+  height: 2.4rem;
+  width: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: transparent;
+
+  &:hover {
+    cursor: pointer;
+    transition: all 0.2s;
+  }
   &--icon {
     height: 1.2rem;
-
-    &:hover {
-      cursor: pointer;
-    }
   }
 }
 </style>
