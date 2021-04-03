@@ -2,20 +2,25 @@
   <teleport to="body">
     <div class="createChannel">
       <div class="createChannel__dialog">
-        <div class="createChannel__dialog--title">
-          <h2 class="createChannel__dialog--title--text">Create a channel</h2>
-          <img
-            @click="showCreateChannel"
-            class="createChannel__dialog--title--icon"
-            src="../../../../assets/icons/cancel.png"
-            alt=""
-          />
+        <div class="createChannel__dialog--top">
+          <div class="createChannel__dialog--title">
+            <h2 class="createChannel__dialog--title--text">Create a channel</h2>
+            <img
+              @click="showCreateChannel"
+              class="createChannel__dialog--title--icon"
+              src="../../../../assets/icons/cancel.png"
+              alt=""
+            />
+          </div>
+          <p class="createChannel__dialog--description">
+            Channels are ways to organize your conversations by topics. You can
+            create up to 5 channels for your community.
+          </p>
+          <create-channel-text-field></create-channel-text-field>
         </div>
-        <p class="createChannel__dialog--description">
-          Channels are ways to organize your conversations by topics. You can
-          create up to 5 channels for your community.
-        </p>
-        <create-channel-text-field></create-channel-text-field>
+        <div class="createChannel__dialog--botto">
+          <create-channel-button></create-channel-button>
+        </div>
       </div>
     </div>
   </teleport>
@@ -24,9 +29,11 @@
 
 <script>
 import CreateChannelTextField from "./CreateChannelTextField.vue";
+import CreateChannelButton from "./CreateChannelButton.vue";
 export default {
   components: {
     CreateChannelTextField,
+    CreateChannelButton,
   },
   props: ["showCreateChannel"],
 };
@@ -52,6 +59,9 @@ export default {
     background-color: white;
     border-radius: 25px;
     padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     &--title {
       display: flex;
