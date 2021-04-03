@@ -21,6 +21,8 @@ export default {
 
 <style lang="scss" scoped>
 .community-view {
+  height: 100vh;
+  width: 100vw;
   display: flex;
 }
 </style>
