@@ -1,6 +1,7 @@
 <template>
   <div class="mainView">
     <main-view-top-bar></main-view-top-bar>
+    <button @click="changeView('channel-view')"></button>
     <component :is="selectedComponent"> </component>
   </div>
 </template>
@@ -19,6 +20,11 @@ export default {
     MainViewTopBar,
     FeedView,
     ChannelView,
+  },
+  methods: {
+    changeView(view) {
+      this.selectedComponent = view;
+    },
   },
 };
 </script>
