@@ -1,3 +1,3 @@
 <template>
-    <div class="channel-view">Channel View</div>
+    <div class="channelView">Channel View</div>
 </template>

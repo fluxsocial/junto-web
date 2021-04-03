@@ -1,5 +1,5 @@
 <template>
-  <div class="main-view">
+  <div class="mainView">
     <main-view-top-bar></main-view-top-bar>
     <component :is="selectedComponent"> </component>
   </div>
@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style lang="scss">
-.main-view {
+.mainView {
   width: 100%;
   height: 100%;
   background-color: white;

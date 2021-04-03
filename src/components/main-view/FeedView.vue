@@ -1,3 +1,3 @@
 <template>
-  <div class="feed-view">FeedView</div>
+  <div class="feedView">FeedView</div>
 </template>
