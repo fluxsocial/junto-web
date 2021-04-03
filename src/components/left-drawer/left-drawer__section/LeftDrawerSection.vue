@@ -1,6 +1,12 @@
 <template>
   <div class="left-drawer__section">
-    <p class="left-drawer__section--title">{{ title }}</p>
+    <div class="left-drawer__section--title">
+      <p class="left-drawer__section--title--name">{{ title }}</p>
+
+      <create-channel-icon
+        v-if="title.toLowerCase() === 'channels'"
+      ></create-channel-icon>
+    </div>
     <left-drawer-section-item
       title="main"
       :type="title.toLowerCase()"
@@ -9,12 +15,14 @@
 </template>
 <script>
 import LeftDrawerSectionItem from "./LeftDrawerSectionItem.vue";
+import CreateChannelIcon from "./create-channel/CreateChannelIcon.vue";
 export default {
   props: {
     title: String,
   },
   components: {
     LeftDrawerSectionItem,
+    CreateChannelIcon,
   },
 };
 </script>
@@ -23,10 +31,15 @@ export default {
 .left-drawer__section {
   margin-bottom: 3rem;
   &--title {
-    text-transform: uppercase;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: $junto-primary-light;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &--name {
+      text-transform: uppercase;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: $junto-primary-light;
+    }
   }
 }
 </style>
