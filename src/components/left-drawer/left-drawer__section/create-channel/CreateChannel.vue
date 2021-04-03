@@ -5,12 +5,16 @@
         <div class="createChannel__dialog--top">
           <div class="createChannel__dialog--title">
             <h2 class="createChannel__dialog--title--text">Create a channel</h2>
-            <img
+            <div
+              class="createChannel__dialog--title--container"
               @click="showCreateChannel"
-              class="createChannel__dialog--title--icon"
-              src="../../../../assets/icons/cancel.png"
-              alt=""
-            />
+            >
+              <img
+                class="createChannel__dialog--title--icon"
+                src="../../../../assets/icons/cancel.png"
+                alt=""
+              />
+            </div>
           </div>
           <p class="createChannel__dialog--description">
             Channels are ways to organize your conversations by topics. You can
@@ -18,7 +22,7 @@
           </p>
           <create-channel-text-field></create-channel-text-field>
         </div>
-        <div class="createChannel__dialog--botto">
+        <div class="createChannel__dialog--bottom">
           <create-channel-button></create-channel-button>
         </div>
       </div>
@@ -74,12 +78,20 @@ export default {
         font-weight: 700;
       }
 
-      &--icon {
-        height: 1.4rem;
-
+      &--container {
+        height: 4rem;
+        width: 4rem;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
         &:hover {
           cursor: pointer;
         }
+      }
+
+      &--icon {
+        height: 1.4rem;
       }
     }
 
