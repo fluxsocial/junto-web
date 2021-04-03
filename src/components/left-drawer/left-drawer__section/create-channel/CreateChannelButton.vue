@@ -1,6 +1,6 @@
 <template>
   <div class="createChannelButton">
-      <div>&nbsp;</div>
+    <div>&nbsp;</div>
     <button class="createChannelButton__button">Create</button>
   </div>
 </template>
@@ -22,6 +22,9 @@
     color: $junto-primary;
     &:hover {
       cursor: pointer;
+      background-color: $junto-accent-color;
+      color: white;
+      transition: all 0.2s;
     }
   }
 }
