@@ -1,8 +1,10 @@
 <template>
   <div class="left-nav__communities-list">
-    <community-avatar></community-avatar>
-    <community-avatar></community-avatar>
-    <community-avatar></community-avatar>
+    <community-avatar
+      v-for="community in communities"
+      :key="community.name"
+      :community="community"
+    ></community-avatar>
   </div>
 </template>
 
@@ -10,6 +12,22 @@
 import CommunityAvatar from "./../ui/avatar/CommunityAvatar.vue";
 
 export default {
+  data() {
+    return {
+      communities: [
+        { name: "JUNTO", channels: ["main, inspiration, events"] },
+        {
+          name: "Holochain",
+          channels: ["main, holo-fuel", "meetups", "when-moon"],
+        },
+        { name: "Naruto", channels: ["main, anbu"] },
+        { name: "Hoops", channels: ["main, hoopiddydoops"] },
+      ],
+    };
+  },
+  methods: {
+    navToCommunity() {},
+  },
   components: { CommunityAvatar },
 };
 </script>

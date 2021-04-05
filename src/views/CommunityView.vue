@@ -24,5 +24,6 @@ export default {
   height: 100vh;
   width: 100vw;
   display: flex;
+  z-index: 1000;
 }
 </style>
