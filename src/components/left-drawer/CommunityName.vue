@@ -21,7 +21,6 @@ export default {
   &__name {
     font-size: 2.4rem;
     font-weight: 500;
-    letter-spacing: 1.5px;
   }
 }
 </style>
