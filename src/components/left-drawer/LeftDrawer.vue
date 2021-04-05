@@ -1,7 +1,6 @@
 <template>
   <div class="left-drawer">
     <community-name :title="community.name"></community-name>
-    <left-drawer-section title="About"></left-drawer-section>
     <left-drawer-section title="Feeds"></left-drawer-section>
     <left-drawer-section title="Channels"></left-drawer-section>
   </div>
