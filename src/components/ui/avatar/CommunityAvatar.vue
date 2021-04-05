@@ -42,7 +42,6 @@ export default {
     position: absolute;
     top: 0.5rem;
     left: 6rem;
-    z-index: 200;
 
     &--text {
       color: white;
