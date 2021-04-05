@@ -66,6 +66,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-width: 40rem;
 
     &--title {
       display: flex;
