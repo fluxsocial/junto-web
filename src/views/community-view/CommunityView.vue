@@ -1,7 +1,7 @@
 <template>
   <div class="community-view">
-    <left-drawer></left-drawer>
-    <main-view></main-view>
+    <left-drawer :community="getCurrentCommunity"></left-drawer>
+    <main-view :community="getCurrentCommunity"></main-view>
   </div>
 </template>
 
@@ -12,6 +12,11 @@ export default {
   components: {
     LeftDrawer,
     MainView,
+  },
+  computed: {
+    getCurrentCommunity() {
+      return this.$store.getters.getCurrentCommunity;
+    },
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="community-avatar" @click="navToCommunity(community)">
+  <div class="community-avatar" @click="navToCommunity()">
     <div class="community-avatar__name">
       <p class="community-avatar__name--text">{{ community.name }}</p>
     </div>
@@ -8,7 +8,12 @@
 
 <script>
 export default {
-  props: ["profile-image", "navToCommunity", "community"],
+  props: ["community"],
+  methods: {
+    navToCommunity() {
+      this.$store.commit({ type: "changeCommunity", value: this.community });
+    },
+  },
 };
 </script>
 

@@ -11,6 +11,7 @@ import MainViewTopBar from "./MainViewTopBar.vue";
 import FeedView from "./FeedView.vue";
 import ChannelView from "./ChannelView.vue";
 export default {
+  props: ["community"],
   data() {
     return {
       selectedComponent: "feed-view",

@@ -8,6 +8,7 @@
 <script>
 import LeftNav from "./../../components/left-nav/LeftNav.vue";
 import CommunityView from "./../community-view/CommunityView.vue";
+
 export default {
   components: {
     LeftNav,
@@ -15,6 +16,7 @@ export default {
   },
 };
 </script>
+
 
 <style lang="scss" scoped>
 .app-view {
