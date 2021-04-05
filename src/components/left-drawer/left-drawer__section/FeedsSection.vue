@@ -5,7 +5,7 @@
     </div>
     <left-drawer-section-item
       title="main"
-      type="feeds"
+      type="feed"
     ></left-drawer-section-item>
   </div>
 </template>

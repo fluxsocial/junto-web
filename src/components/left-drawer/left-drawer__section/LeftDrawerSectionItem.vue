@@ -1,5 +1,5 @@
 <template>
-  <div class="left-drawer__section__item">
+  <div class="left-drawer__section__item" @click="setCurrentCommunityView">
     <img class="left-drawer__section__item--icon" :src="setIcon" :alt="type" />
     <p class="left-drawer__section__item--title">{{ title }}</p>
   </div>
@@ -11,11 +11,11 @@ export default {
   computed: {
     setIcon() {
       let icon;
-      switch (this.type) {
-        case "feeds":
+      switch (this.type.toLowerCase()) {
+        case "feed":
           icon = require("../../../assets/icons/feeds.png");
           break;
-        case "channels":
+        case "channel":
           icon = require("../../../assets/icons/hashtag.png");
           break;
         default:
@@ -25,13 +25,24 @@ export default {
       return icon;
     },
   },
+  methods: {
+    setCurrentCommunityView() {
+      this.$store.commit({
+        type: "changeCommunityView",
+        value: {
+          name: this.title,
+          type: this.type,
+        },
+      });
+    },
+  },
 };
 </script>
 <style lang="scss">
 .left-drawer__section__item {
   display: flex;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 
   &:hover {
     cursor: pointer;
@@ -43,7 +54,7 @@ export default {
   }
 
   &--title {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     font-weight: 500;
   }
 }

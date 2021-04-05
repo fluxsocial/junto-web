@@ -1,17 +1,32 @@
 <template>
   <div class="mainView__topBar">
     <div class="mainView__topBar--title">
-      <img
-        class="mainView__topBar--title--icon"
-        src="../../../assets/icons/feeds.png"
-      />
-      <p class="mainView__topBar--title--name">main</p>
+      <img class="mainView__topBar--title--icon" :src="setIcon" />
+      <p class="mainView__topBar--title--name">{{ currentView.name }}</p>
     </div>
   </div>
 </template>
+
 <script>
 export default {
-  props: ["community"],
+  props: ["currentView"],
+  computed: {
+    setIcon() {
+      let icon;
+      switch (this.currentView.type) {
+        case "feed":
+          icon = require("../../../assets/icons/feeds.png");
+          break;
+        case "channel":
+          icon = require("../../../assets/icons/hashtag.png");
+          break;
+        default:
+          icon = require("../../../assets/icons/feeds.png");
+          break;
+      }
+      return icon;
+    },
+  },
 };
 </script>
 <style lang="scss">
