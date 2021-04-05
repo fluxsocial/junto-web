@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import CommunityView from './../views/CommunityView.vue';
+import AppView from './../views/app-view/AppView.vue';
 
 const routes = [
   {
     name: '/',
-    component: CommunityView
+    component: AppView
   }
 
 ]

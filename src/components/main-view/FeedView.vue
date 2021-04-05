@@ -1,5 +1,5 @@
 <template>
-  <div class="feedView">Temp Feed View</div>
+  <div class="feedView"></div>
 </template>
 
 <style lang="scss">
