@@ -3,7 +3,7 @@
     <div class="mainView__topBar--title">
       <img
         class="mainView__topBar--title--icon"
-        src="../../assets/icons/feeds.png"
+        src="../../../assets/icons/feeds.png"
       />
       <p class="mainView__topBar--title--name">main</p>
     </div>

@@ -7,7 +7,7 @@
 
 <script>
 import LeftDrawer from "../../components/left-drawer/LeftDrawer.vue";
-import MainView from "../../components/main-view/MainView.vue";
+import MainView from "./main-view/MainView.vue";
 export default {
   components: {
     LeftDrawer,
