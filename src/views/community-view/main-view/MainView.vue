@@ -40,5 +40,6 @@ export default {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  position: relative;
 }
 </style>

@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import ProfileAvatar from "./../ui/avatar/ProfileAvatar.vue";
+import ProfileAvatar from "../../ui/avatar/ProfileAvatar.vue";
 export default {
   props: ["message"],
   components: {
