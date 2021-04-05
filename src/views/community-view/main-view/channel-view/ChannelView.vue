@@ -1,21 +1,23 @@
 <template>
   <div class="channelView">
-    <direct-message
-      v-for="message in messages"
-      :key="message.id"
-      :message="message"
-    ></direct-message>
+    <div class="channelView__messages">
+      <direct-message
+        v-for="message in messages"
+        :key="message.id"
+        :message="message"
+      ></direct-message>
+    </div>
+
+    <create-direct-message></create-direct-message>
   </div>
 </template>
 
 
 
 <script>
-import DirectMessage from "./../../../../components/direct-message/DirectMessage.vue";
+import DirectMessage from "../../../../components/direct-message/display/DirectMessage.vue";
+import CreateDirectMessage from "../../../../components/direct-message/create/CreateDirectMessage.vue";
 export default {
-  created() {
-    console.log("yo");
-  },
   data() {
     return {
       messages: [
@@ -89,23 +91,50 @@ export default {
           type: "TextMessage",
           message: "Welcome to Junto!",
         },
+        {
+          id: 9,
+          username: "jdeepee",
+          profilePicture: "./../../../assets/images/junto_app_icon.png",
+          type: "TextMessage",
+          message: "Welcome to Junto!",
+        },
+        {
+          id: 10,
+          username: "jdeepee",
+          profilePicture: "./../../../assets/images/junto_app_icon.png",
+          type: "TextMessage",
+          message: "Welcome to Junto!",
+        },
+        {
+          id: 11,
+          username: "jdeepee",
+          profilePicture: "./../../../assets/images/junto_app_icon.png",
+          type: "TextMessage",
+          message: "Welcome to Junto!",
+        },
       ],
     };
   },
   components: {
     DirectMessage,
+    CreateDirectMessage,
   },
 };
 </script>
 
 <style lang="scss">
 .channelView {
-  padding: 2rem;
-  height: 100vh;
-  max-height: 100vh;
-  overflow: scroll;
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  max-height: 100vh;
+
+  &__messages {
+    overflow: scroll;
+    // 9.5 = 7.5rem (height of MainVewTopBar) + 2rem
+    padding: 9.5rem 2rem 9.5rem 2rem;
+  }
 }
 </style>

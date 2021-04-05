@@ -31,6 +31,7 @@ export default {
 </script>
 <style lang="scss">
 .mainView__topBar {
+  z-index: 2000;
   height: 7.5rem;
   background-color: white;
   width: 100%;
@@ -38,6 +39,10 @@ export default {
   padding: 2rem;
   display: flex;
   align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+
   &--title {
     display: flex;
     align-items: center;

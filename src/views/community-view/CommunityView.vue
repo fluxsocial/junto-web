@@ -25,8 +25,8 @@ export default {
 .community-view {
   height: 100vh;
   max-height: 100vh;
-
   width: 100%;
   display: flex;
+  position: relative;
 }
 </style>
