@@ -19,7 +19,7 @@ export default {
   margin-bottom: 5rem;
 
   &__name {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     font-weight: 500;
   }
 }
