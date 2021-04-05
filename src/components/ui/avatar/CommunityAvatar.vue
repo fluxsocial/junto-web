@@ -1,5 +1,5 @@
 <template>
-  <div class="community-avatar">
+  <div class="community-avatar" @click="navToCommunity(community)">
     <div class="community-avatar__name">
       <p class="community-avatar__name--text">{{ community.name }}</p>
     </div>
