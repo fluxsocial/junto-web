@@ -43,12 +43,12 @@ export default {
     align-items: center;
 
     &--icon {
-      height: 2rem;
+      height: 1.7rem;
       margin-right: 0.5rem;
     }
 
     &--name {
-      font-size: 2rem;
+      font-size: 1.7rem;
       font-weight: 700;
     }
   }
