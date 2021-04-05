@@ -1,17 +1,22 @@
 <template>
-  <div class="profile-avatar">&nbsp;</div>
+  <div class="profile-avatar" :style="avatarDiameter">&nbsp;</div>
 </template>
 
 <script>
 export default {
-  props: ["profile-image"],
+  props: ["profile-image", "diameter"],
+  computed: {
+    avatarDiameter() {
+      return (
+        "height:" + this.diameter + "rem; width: " + this.diameter + "rem;"
+      );
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .profile-avatar {
-  height: 5rem;
-  width: 5rem;
   background-color: #eee;
   border-radius: 100px;
   background-image: url("../../../../src/assets/images/junto_app_icon.png");

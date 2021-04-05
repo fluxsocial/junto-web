@@ -1,7 +1,6 @@
 <template>
   <div class="mainView">
     <main-view-top-bar :currentView="getCurrentView"></main-view-top-bar>
-
     <feed-view v-if="getCurrentView.type === 'feed'"> </feed-view>
     <channel-view v-if="getCurrentView.type === 'channel'"> </channel-view>
   </div>

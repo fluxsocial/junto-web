@@ -1,6 +1,6 @@
 <template>
   <div class="left-nav__bottom-section">
-    <profile-avatar></profile-avatar>
+    <profile-avatar diameter="5"></profile-avatar>
   </div>
 </template>
 

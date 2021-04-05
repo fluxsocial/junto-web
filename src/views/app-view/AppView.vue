@@ -21,6 +21,7 @@ export default {
 <style lang="scss" scoped>
 .app-view {
   height: 100vh;
+  max-height: 100vh;
   width: 100%;
   display: flex;
 }
