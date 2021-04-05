@@ -3,6 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state() {
     return {
+      currentCommunity: { name: "JUNTO", channels: ["main, inspiration, events"] },
       communities: [
         { name: "JUNTO", channels: ["main, inspiration, events"] },
         {
@@ -14,10 +15,20 @@ export default createStore({
       ],
     }
   },
+  mutations: {
+    changeCommunity(state, payload) {
+      console.log('changing community');
+      state.currentCommunity = payload.value;
+    }
+
+  },
   getters: {
     getCommunities(state) {
       console.log(state.communities);
       return state.communities;
+    },
+    getCurrentCommunity(state) {
+      return state.currentCommunity;
     }
   }
 

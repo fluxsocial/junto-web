@@ -1,6 +1,6 @@
 <template>
   <div class="left-drawer">
-    <community-name title="JUNTO"></community-name>
+    <community-name :title="community.name"></community-name>
     <left-drawer-section title="About"></left-drawer-section>
     <left-drawer-section title="Feeds"></left-drawer-section>
     <left-drawer-section title="Channels"></left-drawer-section>
@@ -12,6 +12,7 @@ import CommunityName from "./CommunityName.vue";
 import LeftDrawerSection from "./left-drawer__section/LeftDrawerSection.vue";
 
 export default {
+  props: ["community"],
   components: { CommunityName, LeftDrawerSection },
 };
 </script>

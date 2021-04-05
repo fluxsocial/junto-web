@@ -9,7 +9,11 @@
     </div>
   </div>
 </template>
-
+<script>
+export default {
+  props: ["community"],
+};
+</script>
 <style lang="scss">
 .mainView__topBar {
   height: 7.5rem;
