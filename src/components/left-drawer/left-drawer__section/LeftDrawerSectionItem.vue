@@ -31,6 +31,12 @@ export default {
 .left-drawer__section__item {
   display: flex;
   align-items: center;
+  margin-bottom: 0.5rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+
   &--icon {
     height: 1.4rem;
     margin-right: 0.5rem;
