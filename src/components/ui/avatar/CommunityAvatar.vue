@@ -17,5 +17,9 @@ export default {
   margin-bottom: 2rem;
   background-image: url("../../../../src/assets/images/junto_app_icon.png");
   background-size: cover;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 </style>
