@@ -1,8 +1,9 @@
 <template>
   <div class="mainView">
-    <main-view-top-bar></main-view-top-bar>
-    <button @click="changeView('channel-view')"></button>
-    <component :is="selectedComponent"> </component>
+    <main-view-top-bar :currentView="getCurrentView"></main-view-top-bar>
+
+    <feed-view v-if="getCurrentView.type === 'feed'"> </feed-view>
+    <channel-view v-if="getCurrentView.type === 'channel'"> </channel-view>
   </div>
 </template>
 
@@ -14,6 +15,8 @@ export default {
   props: ["community"],
   data() {
     return {
+      currentView: "main",
+      currentViewType: "feed",
       selectedComponent: "feed-view",
     };
   },
@@ -22,9 +25,9 @@ export default {
     FeedView,
     ChannelView,
   },
-  methods: {
-    changeView(view) {
-      this.selectedComponent = view;
+  computed: {
+    getCurrentView() {
+      return this.$store.getters.getCurrentCommunityView;
     },
   },
 };

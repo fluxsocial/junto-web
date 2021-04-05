@@ -1,8 +1,11 @@
 <template>
   <div class="left-drawer">
     <community-name :title="community.name"></community-name>
-    <left-drawer-section type="Feeds"></left-drawer-section>
-    <left-drawer-section type="Channels" :community="community"></left-drawer-section>
+    <left-drawer-section type="Feed"></left-drawer-section>
+    <left-drawer-section
+      type="Channel"
+      :community="community"
+    ></left-drawer-section>
   </div>
 </template>
 

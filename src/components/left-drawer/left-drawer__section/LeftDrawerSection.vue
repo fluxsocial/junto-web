@@ -1,10 +1,10 @@
 <template>
   <div class="left-drawer__section">
     <channels-section
-      v-if="sectionType === 'channels'"
+      v-if="sectionType === 'channel'"
       :community="community"
     ></channels-section>
-    <feeds-section v-if="sectionType === 'feeds'"></feeds-section>
+    <feeds-section v-if="sectionType === 'feed'"></feeds-section>
   </div>
 </template>
 <script>
@@ -37,7 +37,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     &--name {
       text-transform: uppercase;
       font-size: 1.4rem;
