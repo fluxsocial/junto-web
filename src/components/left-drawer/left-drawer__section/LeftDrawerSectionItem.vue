@@ -56,6 +56,7 @@ export default {
   &--title {
     font-size: 1.4rem;
     font-weight: 500;
+    color: var(--junto-primary);
   }
 }
 </style>

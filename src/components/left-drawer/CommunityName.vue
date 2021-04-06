@@ -21,6 +21,7 @@ export default {
   &__name {
     font-size: 2.2rem;
     font-weight: 500;
+    color: var(--junto-primary);
   }
 }
 </style>
