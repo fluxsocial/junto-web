@@ -1,6 +1,13 @@
 <template>
   <div class="createDirectMessage">
-    <input type="text" class="createDirectMessage__input" />
+    <div class="createDirectMessage__text-field">
+      <input type="text" class="createDirectMessage__text-field--input" />
+      <img
+        src="../../../assets/icons/send.png"
+        class="createDirectMessage__text-field--icon"
+        alt=""
+      />
+    </div>
   </div>
 </template>
 
@@ -17,14 +24,26 @@
   bottom: 0;
   left: 0;
 
-  &__input {
+  &__text-field {
     width: 100%;
     outline: none;
     font-size: 1.4rem;
     border-radius: 5px;
     padding: 1rem;
     border: 1px solid $junto-border-color;
-    overflow: scroll;
+    display: flex;
+    align-items: center;
+
+    &--icon {
+      height: 1.7rem;
+    }
+
+    &--input {
+      width: 100%;
+      border: 0;
+      outline: none;
+      font-size: 1.4rem;
+    }
   }
 }
 </style>
