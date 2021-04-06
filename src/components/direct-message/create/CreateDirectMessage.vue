@@ -1,7 +1,12 @@
 <template>
   <div class="createDirectMessage">
     <div class="createDirectMessage__text-field">
-      <input type="text" class="createDirectMessage__text-field--input" />
+      <input
+        type="text"
+        class="createDirectMessage__text-field--input"
+        v-model="message"
+        v-on:keyup.enter="createDirectMessage"
+      />
       <img
         src="../../../assets/icons/send.png"
         class="createDirectMessage__text-field--icon"
@@ -10,6 +15,35 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: ["createMessage"],
+  data() {
+    return {
+      message: "",
+    };
+  },
+  methods: {
+    createDirectMessage() {
+      const message = {
+        id: Date.now().toString,
+        username: "junto",
+        type: "TextMessage",
+        message: this.message,
+      };
+      //   Validate whether message is empty or not
+      if (this.message !== "") {
+        this.createMessage(message);
+      } else {
+        return;
+      }
+      //   Reset input to an empty string
+      this.message = "";
+    },
+  },
+};
+</script>
 
 
 <style lang="scss" scoped>

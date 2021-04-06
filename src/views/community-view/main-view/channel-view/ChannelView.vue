@@ -1,6 +1,6 @@
 <template>
   <div class="channelView">
-    <div class="channelView__messages">
+    <div class="channelView__messages" ref="messagesContainer">
       <direct-message
         v-for="message in messages"
         :key="message.id"
@@ -8,7 +8,9 @@
       ></direct-message>
     </div>
 
-    <create-direct-message></create-direct-message>
+    <create-direct-message
+      :createMessage="createDirectMessage"
+    ></create-direct-message>
   </div>
 </template>
 
@@ -18,6 +20,9 @@
 import DirectMessage from "../../../../components/direct-message/display/DirectMessage.vue";
 import CreateDirectMessage from "../../../../components/direct-message/create/CreateDirectMessage.vue";
 export default {
+  mounted() {
+    this.scrollToBottom();
+  },
   data() {
     return {
       messages: [
@@ -115,6 +120,19 @@ export default {
       ],
     };
   },
+  methods: {
+    createDirectMessage(message) {
+      this.messages.push(message);
+
+      this.scrollToBottom();
+    },
+
+    scrollToBottom() {
+      const container = this.$refs.messagesContainer;
+      container.scrollTop = container.scrollHeight;
+    },
+  },
+
   components: {
     DirectMessage,
     CreateDirectMessage,
@@ -134,7 +152,7 @@ export default {
   &__messages {
     overflow: scroll;
     // 9.5 = 7.5rem (height of MainVewTopBar) + 2rem
-    padding: 9.5rem 2rem 9.5rem 2rem;
+    padding: 9.5rem 2rem 7.5rem 2rem;
   }
 }
 </style>
