@@ -123,8 +123,7 @@ export default {
   methods: {
     createDirectMessage(message) {
       this.messages.push(message);
-
-      this.scrollToBottom();
+      setTimeout(this.scrollToBottom, 300);
     },
 
     scrollToBottom() {
