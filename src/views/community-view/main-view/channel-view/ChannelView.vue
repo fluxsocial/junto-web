@@ -84,7 +84,7 @@ export default {
         },
         {
           id: 7,
-          username: "jdeepee",
+          username: "urkyang",
           profilePicture: "./../../../assets/images/junto_app_icon.png",
           type: "TextMessage",
           message: "Welcome to Junto!",
@@ -98,21 +98,7 @@ export default {
         },
         {
           id: 9,
-          username: "jdeepee",
-          profilePicture: "./../../../assets/images/junto_app_icon.png",
-          type: "TextMessage",
-          message: "Welcome to Junto!",
-        },
-        {
-          id: 10,
-          username: "jdeepee",
-          profilePicture: "./../../../assets/images/junto_app_icon.png",
-          type: "TextMessage",
-          message: "Welcome to Junto!",
-        },
-        {
-          id: 11,
-          username: "jdeepee",
+          username: "urkyang",
           profilePicture: "./../../../assets/images/junto_app_icon.png",
           type: "TextMessage",
           message: "Welcome to Junto!",
