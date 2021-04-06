@@ -55,6 +55,7 @@ export default {
     &--name {
       font-size: 1.7rem;
       font-weight: 700;
+      color: var(--junto-primary);
     }
   }
 }

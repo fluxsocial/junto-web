@@ -36,7 +36,7 @@ export default {
   padding: 1rem 2rem;
   outline: none;
   border: 1px solid var(--junto-border-color);
-  color: var(--junto-background-color);
+  background-color: var(--junto-border-color);
   margin-bottom: 2rem;
   border-radius: 15px;
 
@@ -45,6 +45,7 @@ export default {
   }
   &__icon {
     height: 1.7rem;
+    color: var(--junto-primary);
   }
 }
 </style>

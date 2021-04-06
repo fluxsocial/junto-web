@@ -77,6 +77,8 @@ export default {
       border: 0;
       outline: none;
       font-size: 1.4rem;
+      background-color: transparent;
+      color: var(--junto-primary);
     }
   }
 }
