@@ -3,6 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state() {
     return {
+      currentTheme: 'light',
       currentCommunity: { name: "JUNTO", channels: ["home", "inspiration", "events"] },
       currentCommunityView: { name: 'main', type: 'feed' },
       communities: [
@@ -26,6 +27,32 @@ export default createStore({
     // navigate to a different view within a community (i.e. feeds, channels, etc)
     changeCommunityView(state, payload) {
       state.currentCommunityView = payload.value;
+    },
+
+    // Toggle theme
+    toggleTheme(state, payload) {
+      let root = document.documentElement;
+
+      if (payload.value === 'light') {
+        state.currentTheme = 'dark';
+        root.style.setProperty('--junto-primary-dark', '#fff');
+        root.style.setProperty('--junto-primary', '#f0f0f0');
+        root.style.setProperty('--junto-primary-medium', '#f0f0f0');
+        root.style.setProperty('--junto-primary-light', '#999999');
+        root.style.setProperty('--junto-border-color', '#555');
+        root.style.setProperty('--junto-accent-color', '#B3808F');
+        root.style.setProperty('--junto-background-color', '#333');
+
+      } else if (payload.value === 'dark') {
+        state.currentTheme = 'light';
+        root.style.setProperty('--junto-primary-dark', '#000');
+        root.style.setProperty('--junto-primary', '#333');
+        root.style.setProperty('--junto-primary-medium','#555');
+        root.style.setProperty('--junto-primary-light', '#999');
+        root.style.setProperty('--junto-border-color', '#eee');
+        root.style.setProperty('--junto-accent-color', '#B3808F');
+        root.style.setProperty('--junto-background-color', '#fff');
+      }
     },
   },
   getters: {
