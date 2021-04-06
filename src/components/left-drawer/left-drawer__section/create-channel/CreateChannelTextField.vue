@@ -31,7 +31,7 @@
 
   &__description {
     font-size: 1.4rem;
-    color: $junto-primary-light;
+    color: var(--junto-primary-light);
     font-weight: 500;
   }
 }

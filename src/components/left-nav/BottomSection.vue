@@ -15,7 +15,7 @@ export default {
 <style lang="scss" scoped>
 .left-nav__bottom-section {
   width: 100%;
-  border-top: 1px #eee solid;
+  border-top: 1px var(--junto-border-color) solid;
   padding-top: 2rem;
 }
 </style>

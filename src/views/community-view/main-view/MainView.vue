@@ -36,7 +36,7 @@ export default {
 .mainView {
   width: 100%;
   height: 100%;
-  background-color: white;
+  background-color: var(--junto-background-color);
   display: flex;
   flex-direction: column;
   flex-grow: 1;

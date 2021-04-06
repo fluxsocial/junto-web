@@ -60,7 +60,7 @@ export default {
   &__dialog {
     height: 60vh;
     width: 30vw;
-    background-color: white;
+    background-color: var(--junto-background-color);
     border-radius: 25px;
     padding: 3rem;
     display: flex;
@@ -99,7 +99,7 @@ export default {
     &--description {
       font-size: 1.6rem;
       font-weight: 500;
-      color: $junto-primary-medium;
+      color: var(--junto-primary-medium);
       margin-bottom: 3rem;
     }
   }

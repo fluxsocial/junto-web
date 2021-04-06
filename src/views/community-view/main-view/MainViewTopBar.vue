@@ -33,9 +33,9 @@ export default {
 .mainView__topBar {
   z-index: 2000;
   height: 7.5rem;
-  background-color: white;
+  background-color: var(--junto-background-color);
   width: 100%;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--junto-border-color);
   padding: 2rem;
   display: flex;
   align-items: center;

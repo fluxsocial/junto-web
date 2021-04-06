@@ -23,8 +23,8 @@ export default {
   width: 5vw;
   min-width: 10rem;
   padding: 2rem;
-  background-color: white;
-  border-right: 1px #eee solid;
+  background-color: var(--junto-background-color);
+  border-right: 1px var(--junto-border-color) solid;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
