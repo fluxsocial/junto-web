@@ -42,7 +42,7 @@ export default {
       text-transform: uppercase;
       font-size: 1.4rem;
       font-weight: 700;
-      color: $junto-primary-light;
+      color: var(--junto-primary-light);
     }
   }
 

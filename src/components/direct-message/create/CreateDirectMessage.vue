@@ -52,8 +52,8 @@ export default {
   height: 7.5rem;
   width: 100%;
   padding: 2rem;
-  background-color: $junto-background-color;
-  border-top: 1px solid $junto-border-color;
+  background-color: var(--junto-background-color);
+  border-top: 1px solid var(--junto-border-color);
   position: absolute;
   bottom: 0;
   left: 0;
@@ -64,7 +64,7 @@ export default {
     font-size: 1.4rem;
     border-radius: 5px;
     padding: 1rem;
-    border: 1px solid $junto-border-color;
+    border: 1px solid var(--junto-border-color);
     display: flex;
     align-items: center;
 
