@@ -34,6 +34,17 @@ export default createStore({
       let root = document.documentElement;
 
       if (payload.value === 'light') {
+        state.currentTheme = 'light';
+        root.style.setProperty('--junto-primary-dark', '#000');
+        root.style.setProperty('--junto-primary', '#333');
+        root.style.setProperty('--junto-primary-medium', '#555');
+        root.style.setProperty('--junto-primary-light', '#999');
+        root.style.setProperty('--junto-border-color', '#eee');
+        root.style.setProperty('--junto-accent-color', '#B3808F');
+        root.style.setProperty('--junto-background-color', '#fff');
+
+
+      } else if (payload.value === 'dark') {
         state.currentTheme = 'dark';
         root.style.setProperty('--junto-primary-dark', '#fff');
         root.style.setProperty('--junto-primary', '#f0f0f0');
@@ -42,16 +53,6 @@ export default createStore({
         root.style.setProperty('--junto-border-color', '#555');
         root.style.setProperty('--junto-accent-color', '#B3808F');
         root.style.setProperty('--junto-background-color', '#333');
-
-      } else if (payload.value === 'dark') {
-        state.currentTheme = 'light';
-        root.style.setProperty('--junto-primary-dark', '#000');
-        root.style.setProperty('--junto-primary', '#333');
-        root.style.setProperty('--junto-primary-medium','#555');
-        root.style.setProperty('--junto-primary-light', '#999');
-        root.style.setProperty('--junto-border-color', '#eee');
-        root.style.setProperty('--junto-accent-color', '#B3808F');
-        root.style.setProperty('--junto-background-color', '#fff');
       }
     },
   },
@@ -70,7 +71,12 @@ export default createStore({
     getCurrentCommunityView(state) {
       console.log(state.currentCommunityView);
       return state.currentCommunityView;
+    },
+    // Get current theme
+    getCurrentTheme(state) {
+      return state.currentTheme;
     }
+
   }
 
 })
