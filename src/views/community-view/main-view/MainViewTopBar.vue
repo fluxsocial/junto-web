@@ -1,7 +1,9 @@
 <template>
   <div class="mainView__topBar">
     <div class="mainView__topBar--title">
-      <img class="mainView__topBar--title--icon" :src="setIcon" />
+      <svg class="mainView__topBar--title--icon">
+        <use :href="require('../../../assets/icons/icons.svg') + setIcon"></use>
+      </svg>
       <p class="mainView__topBar--title--name">{{ currentView.name }}</p>
     </div>
   </div>
@@ -15,13 +17,13 @@ export default {
       let icon;
       switch (this.currentView.type) {
         case "feed":
-          icon = require("../../../assets/icons/feeds.png");
+          icon = "#feed";
           break;
         case "channel":
-          icon = require("../../../assets/icons/hashtag.png");
+          icon = "#hashtag";
           break;
         default:
-          icon = require("../../../assets/icons/feeds.png");
+          icon = "#feed";
           break;
       }
       return icon;
@@ -48,7 +50,9 @@ export default {
     align-items: center;
 
     &--icon {
+      fill: var(--junto-primary);
       height: 1.7rem;
+      width: 1.7rem;
       margin-right: 0.5rem;
     }
 

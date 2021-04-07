@@ -1,6 +1,8 @@
 <template>
   <div class="left-drawer__section__item" @click="setCurrentCommunityView">
-    <img class="left-drawer__section__item--icon" :src="setIcon" :alt="type" />
+    <svg class="left-drawer__section__item--icon">
+      <use :href="require('../../../assets/icons/icons.svg') + setIcon"></use>
+    </svg>
     <p class="left-drawer__section__item--title">{{ title }}</p>
   </div>
 </template>
@@ -13,13 +15,13 @@ export default {
       let icon;
       switch (this.type.toLowerCase()) {
         case "feed":
-          icon = require("../../../assets/icons/feeds.png");
+          icon = "#feed";
           break;
         case "channel":
-          icon = require("../../../assets/icons/hashtag.png");
+          icon = "#hashtag";
           break;
         default:
-          icon = require("../../../assets/icons/feeds.png");
+          icon = "#feed";
           break;
       }
       return icon;
@@ -50,7 +52,9 @@ export default {
 
   &--icon {
     height: 1.4rem;
+    width: 1.4rem;
     margin-right: 0.5rem;
+    fill: var(--junto-primary);
   }
 
   &--title {
