@@ -11,7 +11,7 @@ export default defineComponent({
     diameter: { type: Number, default: 30 },
   },
   computed: {
-    avatarDiameter(): String {
+    avatarDiameter(): string {
       return `height:${this.diameter}rem; width: ${this.diameter}rem;`;
     },
   },

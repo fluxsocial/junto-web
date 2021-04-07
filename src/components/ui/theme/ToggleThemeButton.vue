@@ -6,31 +6,34 @@
   </button>
 </template>
 
+<script lang="ts">
+import { defineComponent } from 'vue';
+import { useStore } from '@/store';
 
-<script>
-export default {
+export default defineComponent({
   methods: {
-    toggleTheme() {
-      if (this.currentTheme === "light") {
-        this.$store.commit({ type: "toggleTheme", value: "dark" });
+    toggleTheme(): void {
+      const store = useStore();
+      if (this.currentTheme === 'light') {
+        store.commit({ type: 'toggleTheme', value: 'dark' });
       } else {
-        this.$store.commit({ type: "toggleTheme", value: "light" });
+        store.commit({ type: 'toggleTheme', value: 'light' });
       }
     },
   },
   computed: {
     currentTheme() {
-      return this.$store.getters.getCurrentTheme;
+      const store = useStore();
+      return store.getters.getCurrentTheme;
     },
     themeIcon() {
-      if (this.currentTheme === "light") {
-        return "#sun";
-      } else {
-        return "#moon";
+      if (this.currentTheme === 'light') {
+        return '#sun';
       }
+      return '#moon';
     },
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>

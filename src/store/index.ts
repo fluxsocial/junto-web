@@ -1,4 +1,4 @@
-import { createStore } from 'vuex';
+import { createStore, Store } from 'vuex';
 
 export interface Community {
   name: string;
@@ -97,6 +97,6 @@ const store = createStore<State>({
 
 export default store;
 
-export function useStore() {
+export function useStore(): Store<State> {
   return store;
 }

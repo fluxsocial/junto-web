@@ -107,11 +107,11 @@ export default defineComponent({
     };
   },
   methods: {
-    createDirectMessage(message: any) {
+    createDirectMessage(message: any): void {
       this.messages.push(message);
       setTimeout(this.scrollToBottom, 300);
     },
-    scrollToBottom() {
+    scrollToBottom(): void {
       const container: any = this.$refs.messagesContainer;
       container.scrollTop = container.scrollHeight;
     },

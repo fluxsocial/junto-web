@@ -22,7 +22,7 @@ export default defineComponent({
     community: Object,
   },
   computed: {
-    sectionType(): String {
+    sectionType(): string {
       return this.type.toLowerCase();
     },
   },
