@@ -25,10 +25,21 @@
         <input type="text" class="welcomeViewRight__input--field" />
       </div>
     </div>
-    <button class="welcomeViewRight__button">Create</button>
+    <button class="welcomeViewRight__button" @click="navigateToApp">
+      Create
+    </button>
   </div>
 </template>
 
+<script>
+export default {
+  methods: {
+    navigateToApp() {
+      this.$router.push("/home");
+    },
+  },
+};
+</script>
 <style lang="scss" scoped>
 .welcomeViewRight {
   display: flex;
