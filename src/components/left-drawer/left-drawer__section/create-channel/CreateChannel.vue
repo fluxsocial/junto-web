@@ -9,11 +9,9 @@
               class="createChannel__dialog--title--container"
               @click="showCreateChannel"
             >
-              <img
-                class="createChannel__dialog--title--icon"
-                src="../../../../assets/icons/cancel.png"
-                alt=""
-              />
+              <svg class="createChannel__dialog--title--icon">
+                <use href="../../../../assets/icons/icons.svg#cancel"></use>
+              </svg>
             </div>
           </div>
           <p class="createChannel__dialog--description">
@@ -80,19 +78,20 @@ export default {
       }
 
       &--container {
-        height: 4rem;
-        width: 4rem;
         background-color: transparent;
         display: flex;
         align-items: center;
         justify-content: flex-end;
+
         &:hover {
           cursor: pointer;
         }
       }
 
       &--icon {
-        height: 1.4rem;
+        height: 3rem;
+        width: 3rem;
+        fill: var(--junto-primary);
       }
     }
 

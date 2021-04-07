@@ -1,9 +1,7 @@
 <template>
   <button class="toggleThemeButton" @click="toggleTheme">
     <svg class="toggleThemeButton__icon">
-      <use
-        :href="require('../../../assets/icons/icons.svg') + themeIcon"
-      ></use>
+      <use :href="require('../../../assets/icons/icons.svg') + themeIcon"></use>
     </svg>
   </button>
 </template>
