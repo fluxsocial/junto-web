@@ -1,7 +1,9 @@
 <template>
   <div class="mainView__topBar">
     <div class="mainView__topBar--title">
-      <img class="mainView__topBar--title--icon" :src="setIcon" />
+      <svg class="mainView__topBar--title--icon">
+        <use :href="require('../../../assets/icons/icons.svg') + setIcon"></use>
+      </svg>
       <p class="mainView__topBar--title--name">{{ currentView.name }}</p>
     </div>
   </div>
@@ -9,8 +11,6 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import FeedIcon from '@/assets/icons/feeds.png';
-import ChannelIcon from '@/assets/icons/hashtag.png';
 import { CommunityView } from '@/store';
 
 export default defineComponent({
@@ -22,13 +22,13 @@ export default defineComponent({
       let icon;
       switch (this.currentView.type) {
         case 'feed':
-          icon = FeedIcon;
+          icon = '#feed';
           break;
         case 'channel':
-          icon = ChannelIcon;
+          icon = '#hashtag';
           break;
         default:
-          icon = FeedIcon;
+          icon = '#feed';
           break;
       }
       return icon;
@@ -41,9 +41,9 @@ export default defineComponent({
 .mainView__topBar {
   z-index: 2000;
   height: 7.5rem;
-  background-color: white;
+  background-color: var(--junto-background-color);
   width: 100%;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--junto-border-color);
   padding: 2rem;
   display: flex;
   align-items: center;
@@ -56,13 +56,16 @@ export default defineComponent({
     align-items: center;
 
     &--icon {
+      fill: var(--junto-primary);
       height: 1.7rem;
+      width: 1.7rem;
       margin-right: 0.5rem;
     }
 
     &--name {
       font-size: 1.7rem;
       font-weight: 700;
+      color: var(--junto-primary);
     }
   }
 }

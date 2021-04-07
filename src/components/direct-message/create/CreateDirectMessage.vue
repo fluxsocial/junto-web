@@ -7,11 +7,9 @@
         v-model="message"
         v-on:keyup.enter="createDirectMessage"
       />
-      <img
-        src="@/assets/icons/send.png"
-        class="createDirectMessage__text-field--icon"
-        alt=""
-      />
+      <svg class="createDirectMessage__text-field--icon">
+        <use href="@/assets/icons/icons.svg#send"></use>
+      </svg>
     </div>
   </div>
 </template>
@@ -58,8 +56,8 @@ export default defineComponent({
   height: 7.5rem;
   width: 100%;
   padding: 2rem;
-  background-color: $junto-background-color;
-  border-top: 1px solid $junto-border-color;
+  background-color: var(--junto-background-color);
+  border-top: 1px solid var(--junto-border-color);
   position: absolute;
   bottom: 0;
   left: 0;
@@ -70,12 +68,14 @@ export default defineComponent({
     font-size: 1.4rem;
     border-radius: 5px;
     padding: 1rem;
-    border: 1px solid $junto-border-color;
+    border: 1px solid var(--junto-border-color);
     display: flex;
     align-items: center;
 
     &--icon {
       height: 1.7rem;
+      width: 1.7rem;
+      fill: var(--junto-primary);
     }
 
     &--input {
@@ -83,6 +83,8 @@ export default defineComponent({
       border: 0;
       outline: none;
       font-size: 1.4rem;
+      background-color: transparent;
+      color: var(--junto-primary);
     }
   }
 }

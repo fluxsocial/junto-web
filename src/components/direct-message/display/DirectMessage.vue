@@ -26,5 +26,6 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   margin-bottom: 2rem;
+  color: var(--junto-primary);
 }
 </style>

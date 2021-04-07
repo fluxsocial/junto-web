@@ -1,6 +1,8 @@
 <template>
   <div class="left-drawer__section__item" @click="setCurrentCommunityView">
-    <img class="left-drawer__section__item--icon" :src="setIcon" :alt="type" />
+    <svg class="left-drawer__section__item--icon">
+      <use :href="require('../../../assets/icons/icons.svg') + setIcon"></use>
+    </svg>
     <p class="left-drawer__section__item--title">{{ title }}</p>
   </div>
 </template>
@@ -8,8 +10,6 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import { useStore } from '@/store';
-import FeedIcon from '@/assets/icons/feeds.png';
-import ChannelIcon from '@/assets/icons/hashtag.png';
 
 export default defineComponent({
   props: {
@@ -21,13 +21,13 @@ export default defineComponent({
       let icon;
       switch (this.type?.toLowerCase()) {
         case 'feed':
-          icon = FeedIcon;
+          icon = '#feed';
           break;
         case 'channel':
-          icon = ChannelIcon;
+          icon = '#hashtag';
           break;
         default:
-          icon = FeedIcon;
+          icon = '#feed';
           break;
       }
       return icon;
@@ -59,12 +59,15 @@ export default defineComponent({
 
   &--icon {
     height: 1.4rem;
+    width: 1.4rem;
     margin-right: 0.5rem;
+    fill: var(--junto-primary);
   }
 
   &--title {
     font-size: 1.4rem;
     font-weight: 500;
+    color: var(--junto-primary);
   }
 }
 </style>

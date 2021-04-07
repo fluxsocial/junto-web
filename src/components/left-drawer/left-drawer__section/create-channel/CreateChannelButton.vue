@@ -16,15 +16,15 @@
     outline: none;
     border-radius: 5px;
     box-shadow: none;
-    background-color: $junto-border-color;
+    background-color: var(--junto-border-color);
     border: none;
     text-decoration: none;
-    color: $junto-primary;
+    color: var(--junto-primary);
     &:hover {
       cursor: pointer;
-      background-color: $junto-accent-color;
-      color: white;
+      background-color: var(--junto-accent-color);
       transition: all 0.2s;
+      color: white;
     }
   }
 }

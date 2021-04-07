@@ -28,9 +28,9 @@ export default defineComponent({
   padding: 2rem;
   width: 15vw;
   min-width: 20rem;
-  background-color: white;
+  background-color: var(--junto-background-color);
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #eee;
+  border-right: 1px solid var(--junto-border-color);
 }
 </style>

@@ -28,7 +28,7 @@ export default defineComponent({
 .community-avatar {
   height: 5rem;
   width: 5rem;
-  background-color: #eee;
+  background-color: var(--junto-border-color);
   border-radius: 100px;
   margin-bottom: 2rem;
   background-image: url('../../../../src/assets/images/junto_app_icon.png');
@@ -48,14 +48,14 @@ export default defineComponent({
   &__name {
     visibility: hidden;
     padding: 1rem;
-    background-color: $junto-primary;
+    background-color: var(--junto-primary);
     border-radius: 5px;
     position: absolute;
     top: 0.5rem;
     left: 6rem;
 
     &--text {
-      color: white;
+      color: var(--junto-background-color);
       font-size: 1.2rem;
       font-weight: 700;
     }

@@ -1,6 +1,8 @@
 <template>
   <div class="createChannelIcon" @click="showCreateChannel">
-    <img class="createChannelIcon--icon" src="@/assets/icons/plus.png" alt="" />
+    <svg class="createChannelIcon__icon">
+      <use href="@/assets/icons/icons.svg#plus"></use>
+    </svg>
   </div>
   <create-channel
     v-if="activateCreateChannel"
@@ -43,8 +45,10 @@ export default defineComponent({
     cursor: pointer;
     transition: all 0.2s;
   }
-  &--icon {
-    height: 1.2rem;
+  &__icon {
+    fill: var(--junto-primary-light);
+    height: 1.7rem;
+    width: 1.7rem;
   }
 }
 </style>

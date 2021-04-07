@@ -34,6 +34,7 @@ export default defineComponent({
       font-size: 1.4rem;
       font-weight: 700;
       margin-left: 0.5rem;
+      color: var(--junto-primary);
     }
   }
 

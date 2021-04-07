@@ -1,7 +1,9 @@
 <template>
   <div class="createChannelTextField">
     <h2 class="createChannelTextField__title">Name</h2>
-    <input class="createChannelTextField__input" maxlength="22" />
+    <div class="createChannelTextField__input">
+      <input class="createChannelTextField__input--field" maxlength="22" />
+    </div>
     <p class="createChannelTextField__description">
       Channel names can contain letters, numbers, hypens, and underscores.
     </p>
@@ -18,18 +20,25 @@
   }
 
   &__input {
-    width: 100%;
-    height: 3.6rem;
-    outline: none;
-    font-size: 1.4rem;
-    border-radius: 5px;
+    border: 1px solid var(--junto-border-color);
     padding: 1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    height: 3.6rem;
+    border-radius: 5px;
+
+    &--field {
+      width: 100%;
+      outline: none;
+      font-size: 1.4rem;
+      background-color: transparent;
+      border: none;
+      color: var(--junto-primary);
+    }
   }
 
   &__description {
     font-size: 1.4rem;
-    color: $junto-primary-light;
+    color: var(--junto-primary-light);
     font-weight: 500;
   }
 }

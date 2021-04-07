@@ -20,7 +20,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .profile-avatar {
-  background-color: #eee;
+  background-color: var(--junto-border-color);
   border-radius: 100px;
   background-image: url('../../../../src/assets/images/junto_app_icon.png');
   background-size: cover;

@@ -8,7 +8,7 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
-  background-color: white;
+  background-color: var(--junto-background-color);
   flex-grow: 1;
   text-align: center;
   justify-content: center;
