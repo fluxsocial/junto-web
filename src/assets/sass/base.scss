@@ -1,10 +1,3 @@
-$junto-primary-dark: #000;
-$junto-primary: #333;
-$junto-primary-medium: #555;
-$junto-primary-light: #999;
-$junto-border-color: #eee;
-$junto-accent-color: #B3808F;
-$junto-background-color: #fff;
 
 :root {
   --junto-primary-dark: #000;
@@ -14,6 +7,7 @@ $junto-background-color: #fff;
   --junto-border-color: #eee;
   --junto-accent-color: #B3808F;
   --junto-background-color: #fff;
+  --junto-icon-color: invert(30%);
 }
 
 *,
@@ -34,5 +28,5 @@ body {
   font-weight: 400;
   overflow-x: hidden;
   outline: none;
-  color: $junto-primary;
+  color: var(--junto-primary);
 }

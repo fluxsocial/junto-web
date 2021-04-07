@@ -1,6 +1,10 @@
 <template>
   <button class="toggleThemeButton" @click="toggleTheme">
-    <img class="toggleThemeButton__icon" :src="themeIcon" alt="" />
+    <svg class="toggleThemeButton__icon">
+      <use
+        :href="require('../../../assets/icons/icons.svg') + themeIcon"
+      ></use>
+    </svg>
   </button>
 </template>
 
@@ -22,9 +26,9 @@ export default {
     },
     themeIcon() {
       if (this.currentTheme === "light") {
-        return require("../../../assets/icons/sun.png");
+        return "#sun";
       } else {
-        return require("../../../assets/icons/moon.png");
+        return "#moon";
       }
     },
   },
@@ -45,7 +49,8 @@ export default {
   }
   &__icon {
     height: 1.7rem;
-    color: var(--junto-primary);
+    width: 1.7rem;
+    fill: var(--junto-primary);
   }
 }
 </style>
