@@ -9,14 +9,18 @@
   </div>
 </template>
 
-<script>
-import CommunityName from "./CommunityName.vue";
-import LeftDrawerSection from "./left-drawer__section/LeftDrawerSection.vue";
+<script lang="ts">
+import { defineComponent, PropType } from 'vue';
+import { Community } from '@/store/index';
+import CommunityName from './CommunityName.vue';
+import LeftDrawerSection from './left-drawer__section/LeftDrawerSection.vue';
 
-export default {
-  props: ["community"],
+export default defineComponent({
+  props: {
+    community: Object as PropType<Community>,
+  },
   components: { CommunityName, LeftDrawerSection },
-};
+});
 </script>
 
 <style lang="scss" scoped>

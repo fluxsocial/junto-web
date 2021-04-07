@@ -8,18 +8,20 @@
   </div>
 </template>
 
-<script>
-import CommunityAvatar from "./../ui/avatar/CommunityAvatar.vue";
+<script lang="ts">
+import { defineComponent } from 'vue';
+import { useStore } from '@/store';
+import CommunityAvatar from '../ui/avatar/CommunityAvatar.vue';
 
-export default {
+export default defineComponent({
   computed: {
     getCommunities() {
-      return this.$store.getters.getCommunities;
+      const store = useStore();
+      return store.getters.getCommunities;
     },
   },
-
   components: { CommunityAvatar },
-};
+});
 </script>
 
 <style lang="scss" scoped>

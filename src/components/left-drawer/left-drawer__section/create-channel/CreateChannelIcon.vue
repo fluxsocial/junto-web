@@ -1,10 +1,6 @@
 <template>
   <div class="createChannelIcon" @click="showCreateChannel">
-    <img
-      class="createChannelIcon--icon"
-      src="../../../../assets/icons/plus.png"
-      alt=""
-    />
+    <img class="createChannelIcon--icon" src="@/assets/icons/plus.png" alt="" />
   </div>
   <create-channel
     v-if="activateCreateChannel"
@@ -12,9 +8,11 @@
   ></create-channel>
 </template>
 
-<script>
-import CreateChannel from "./CreateChannel.vue";
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+import CreateChannel from './CreateChannel.vue';
+
+export default defineComponent({
   data() {
     return {
       activateCreateChannel: false,
@@ -22,14 +20,14 @@ export default {
   },
   methods: {
     showCreateChannel() {
-      console.log("toggling create channel view");
+      console.log('toggling create channel view');
       this.activateCreateChannel = !this.activateCreateChannel;
     },
   },
   components: {
     CreateChannel,
   },
-};
+});
 </script>
 
 <style lang="scss">

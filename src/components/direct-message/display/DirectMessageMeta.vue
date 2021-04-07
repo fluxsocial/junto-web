@@ -8,14 +8,18 @@
   </div>
 </template>
 
-<script>
-import ProfileAvatar from "../../ui/avatar/ProfileAvatar.vue";
-export default {
-  props: ["message"],
+<script lang="ts">
+import { defineComponent } from 'vue';
+import ProfileAvatar from '../../ui/avatar/ProfileAvatar.vue';
+
+export default defineComponent({
+  props: {
+    message: Object,
+  },
   components: {
     ProfileAvatar,
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>
@@ -29,7 +33,7 @@ export default {
     &--username {
       font-size: 1.4rem;
       font-weight: 700;
-      margin-left: .5rem;
+      margin-left: 0.5rem;
     }
   }
 

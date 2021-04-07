@@ -8,7 +8,7 @@
         v-on:keyup.enter="createDirectMessage"
       />
       <img
-        src="../../../assets/icons/send.png"
+        src="@/assets/icons/send.png"
         class="createDirectMessage__text-field--icon"
         alt=""
       />
@@ -16,38 +16,44 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: ["createMessage"],
+<script lang="ts">
+import { defineComponent, PropType } from 'vue';
+
+export default defineComponent({
+  props: {
+    createMessage: {
+      type: Function as PropType<(message: any) => void>,
+      required: true,
+    },
+  },
   data() {
     return {
-      message: "",
+      message: '',
     };
   },
   methods: {
     createDirectMessage() {
       const message = {
         id: Date.now().toString,
-        username: "junto",
-        type: "TextMessage",
+        username: 'junto',
+        type: 'TextMessage',
         message: this.message,
       };
       //   Validate whether message is empty or not
-      if (this.message !== "") {
+      if (this.message !== '') {
         this.createMessage(message);
       } else {
         return;
       }
       //   Reset input to an empty string
-      this.message = "";
+      this.message = '';
     },
   },
-};
+});
 </script>
 
-
 <style lang="scss" scoped>
-@import "../../../assets/sass/main.scss";
+@import '../../../assets/sass/main.scss';
 .createDirectMessage {
   height: 7.5rem;
   width: 100%;

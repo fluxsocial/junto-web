@@ -14,12 +14,12 @@
   </div>
 </template>
 
+<script lang="ts">
+import { defineComponent } from 'vue';
+import DirectMessage from '@/components/direct-message/display/DirectMessage.vue';
+import CreateDirectMessage from '@/components/direct-message/create/CreateDirectMessage.vue';
 
-
-<script>
-import DirectMessage from "../../../../components/direct-message/display/DirectMessage.vue";
-import CreateDirectMessage from "../../../../components/direct-message/create/CreateDirectMessage.vue";
-export default {
+export default defineComponent({
   mounted() {
     this.scrollToBottom();
   },
@@ -28,92 +28,91 @@ export default {
       messages: [
         {
           id: 12345,
-          username: "urkyang",
-          profilePicture: "./../../../assets/images/junto_app_icon.png",
-          type: "TextMessage",
-          message: "Hey what is up everyone!",
+          username: 'urkyang',
+          profilePicture: '@/assets/images/junto_app_icon.png',
+          type: 'TextMessage',
+          message: 'Hey what is up everyone!',
         },
         {
           id: 56779,
-          username: "jdeepee",
-          profilePicture: "./../../../assets/images/junto_app_icon.png",
-          type: "TextMessage",
-          message: "Welcome to Junto!",
+          username: 'jdeepee',
+          profilePicture: '@/assets/images/junto_app_icon.png',
+          type: 'TextMessage',
+          message: 'Welcome to Junto!',
         },
         {
           id: 1,
-          username: "urkyang",
-          profilePicture: "./../../../assets/images/junto_app_icon.png",
-          type: "TextMessage",
-          message: "Hey what is up everyone!",
+          username: 'urkyang',
+          profilePicture: '@/assets/images/junto_app_icon.png',
+          type: 'TextMessage',
+          message: 'Hey what is up everyone!',
         },
         {
           id: 2,
-          username: "jdeepee",
-          profilePicture: "./../../../assets/images/junto_app_icon.png",
-          type: "TextMessage",
-          message: "Welcome to Junto!",
+          username: 'jdeepee',
+          profilePicture: '@/assets/images/junto_app_icon.png',
+          type: 'TextMessage',
+          message: 'Welcome to Junto!',
         },
         {
           id: 3,
-          username: "urkyang",
-          profilePicture: "./../../../assets/images/junto_app_icon.png",
-          type: "TextMessage",
-          message: "Hey what is up everyone!",
+          username: 'urkyang',
+          profilePicture: '@/assets/images/junto_app_icon.png',
+          type: 'TextMessage',
+          message: 'Hey what is up everyone!',
         },
         {
           id: 4,
-          username: "jdeepee",
-          profilePicture: "./../../../assets/images/junto_app_icon.png",
-          type: "TextMessage",
-          message: "Welcome to Junto!",
+          username: 'jdeepee',
+          profilePicture: '@/assets/images/junto_app_icon.png',
+          type: 'TextMessage',
+          message: 'Welcome to Junto!',
         },
         {
           id: 5,
-          username: "urkyang",
-          profilePicture: "./../../../assets/images/junto_app_icon.png",
-          type: "TextMessage",
-          message: "Hey what is up everyone!",
+          username: 'urkyang',
+          profilePicture: '@/assets/images/junto_app_icon.png',
+          type: 'TextMessage',
+          message: 'Hey what is up everyone!',
         },
         {
           id: 6,
-          username: "jdeepee",
-          profilePicture: "./../../../assets/images/junto_app_icon.png",
-          type: "TextMessage",
-          message: "Welcome to Junto!",
+          username: 'jdeepee',
+          profilePicture: '@/assets/images/junto_app_icon.png',
+          type: 'TextMessage',
+          message: 'Welcome to Junto!',
         },
         {
           id: 7,
-          username: "urkyang",
-          profilePicture: "./../../../assets/images/junto_app_icon.png",
-          type: "TextMessage",
-          message: "Welcome to Junto!",
+          username: 'urkyang',
+          profilePicture: '@/assets/images/junto_app_icon.png',
+          type: 'TextMessage',
+          message: 'Welcome to Junto!',
         },
         {
           id: 8,
-          username: "jdeepee",
-          profilePicture: "./../../../assets/images/junto_app_icon.png",
-          type: "TextMessage",
-          message: "Welcome to Junto!",
+          username: 'jdeepee',
+          profilePicture: '@/assets/images/junto_app_icon.png',
+          type: 'TextMessage',
+          message: 'Welcome to Junto!',
         },
         {
           id: 9,
-          username: "urkyang",
-          profilePicture: "./../../../assets/images/junto_app_icon.png",
-          type: "TextMessage",
-          message: "Welcome to Junto!",
+          username: 'urkyang',
+          profilePicture: '@/assets/images/junto_app_icon.png',
+          type: 'TextMessage',
+          message: 'Welcome to Junto!',
         },
       ],
     };
   },
   methods: {
-    createDirectMessage(message) {
+    createDirectMessage(message: any) {
       this.messages.push(message);
       setTimeout(this.scrollToBottom, 300);
     },
-
     scrollToBottom() {
-      const container = this.$refs.messagesContainer;
+      const container: any = this.$refs.messagesContainer;
       container.scrollTop = container.scrollHeight;
     },
   },
@@ -122,7 +121,7 @@ export default {
     DirectMessage,
     CreateDirectMessage,
   },
-};
+});
 </script>
 
 <style lang="scss">

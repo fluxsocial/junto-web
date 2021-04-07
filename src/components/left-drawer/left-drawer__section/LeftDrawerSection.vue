@@ -7,17 +7,22 @@
     <feeds-section v-if="sectionType === 'feed'"></feeds-section>
   </div>
 </template>
-<script>
-import ChannelsSection from "./ChannelsSection.vue";
-import FeedsSection from "./FeedsSection.vue";
 
-export default {
+<script lang="ts">
+import { defineComponent, PropType } from 'vue';
+import ChannelsSection from './ChannelsSection.vue';
+import FeedsSection from './FeedsSection.vue';
+
+export default defineComponent({
   props: {
-    type: String,
+    type: {
+      type: String as PropType<'feed' | 'channel'>,
+      default: 'feed',
+    },
     community: Object,
   },
   computed: {
-    sectionType() {
+    sectionType(): String {
       return this.type.toLowerCase();
     },
   },
@@ -26,11 +31,11 @@ export default {
     ChannelsSection,
     FeedsSection,
   },
-};
+});
 </script>
 
 <style lang="scss">
-@import "../../../assets/sass/main.scss";
+@import '../../../assets/sass/main.scss';
 .left-drawer__section {
   margin-bottom: 1.5rem;
   &--title {

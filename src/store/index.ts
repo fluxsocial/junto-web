@@ -1,20 +1,36 @@
-import { createStore } from 'vuex'
+import { createStore } from 'vuex';
 
-export default createStore({
+export interface Community {
+  name: string;
+  channels: Array<string>;
+}
+
+export interface CommunityView {
+  name: string;
+  type: 'feed' | 'channel';
+}
+
+interface State {
+  currentCommunity: Community;
+  currentCommunityView: CommunityView;
+  communities: Array<Community>;
+}
+
+const store = createStore<State>({
   state() {
     return {
-      currentCommunity: { name: "JUNTO", channels: ["home", "inspiration", "events"] },
+      currentCommunity: { name: 'JUNTO', channels: ['home', 'inspiration', 'events'] },
       currentCommunityView: { name: 'main', type: 'feed' },
       communities: [
-        { name: "JUNTO", channels: ["home", "inspiration", "events"] },
+        { name: 'JUNTO', channels: ['home', 'inspiration', 'events'] },
         {
-          name: "Holochain",
-          channels: ["home", "holo-fuel", "meetups", "when-moon"],
+          name: 'Holochain',
+          channels: ['home', 'holo-fuel', 'meetups', 'when-moon'],
         },
-        { name: "Naruto", channels: ["home", "anbu"] },
-        { name: "Hoops", channels: ["home", "hoopiddydoops"] },
+        { name: 'Naruto', channels: ['home', 'anbu'] },
+        { name: 'Hoops', channels: ['home', 'hoopiddydoops'] },
       ],
-    }
+    };
   },
   mutations: {
     // navigate to a new community
@@ -43,7 +59,12 @@ export default createStore({
     getCurrentCommunityView(state) {
       console.log(state.currentCommunityView);
       return state.currentCommunityView;
-    }
-  }
+    },
+  },
+});
 
-})
+export default store;
+
+export function useStore() {
+  return store;
+}

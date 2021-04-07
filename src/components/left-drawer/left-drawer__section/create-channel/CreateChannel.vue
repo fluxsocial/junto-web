@@ -11,7 +11,7 @@
             >
               <img
                 class="createChannel__dialog--title--icon"
-                src="../../../../assets/icons/cancel.png"
+                src="@/assets/icons/cancel.png"
                 alt=""
               />
             </div>
@@ -30,21 +30,24 @@
   </teleport>
 </template>
 
+<script lang="ts">
+import { defineComponent } from 'vue';
+import CreateChannelTextField from './CreateChannelTextField.vue';
+import CreateChannelButton from './CreateChannelButton.vue';
 
-<script>
-import CreateChannelTextField from "./CreateChannelTextField.vue";
-import CreateChannelButton from "./CreateChannelButton.vue";
-export default {
+export default defineComponent({
   components: {
     CreateChannelTextField,
     CreateChannelButton,
   },
-  props: ["showCreateChannel"],
-};
+  props: {
+    showCreateChannel: Function,
+  },
+});
 </script>
 
 <style lang="scss">
-@import "../../../../assets/sass/main.scss";
+@import '../../../../assets/sass/main.scss';
 .createChannel {
   position: absolute;
   top: 0;

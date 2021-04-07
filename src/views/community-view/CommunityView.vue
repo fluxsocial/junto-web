@@ -5,20 +5,24 @@
   </div>
 </template>
 
-<script>
-import LeftDrawer from "../../components/left-drawer/LeftDrawer.vue";
-import MainView from "./main-view/MainView.vue";
-export default {
+<script lang="ts">
+import { useStore } from '@/store';
+import { defineComponent } from 'vue';
+import LeftDrawer from '@/components/left-drawer/LeftDrawer.vue';
+import MainView from './main-view/MainView.vue';
+
+export default defineComponent({
   components: {
     LeftDrawer,
     MainView,
   },
   computed: {
     getCurrentCommunity() {
-      return this.$store.getters.getCurrentCommunity;
+      const store = useStore();
+      return store.getters.getCurrentCommunity;
     },
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>

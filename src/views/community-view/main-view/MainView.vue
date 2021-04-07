@@ -6,17 +6,22 @@
   </div>
 </template>
 
-<script>
-import MainViewTopBar from "./MainViewTopBar.vue";
-import FeedView from "./feed-view/FeedView.vue";
-import ChannelView from "./channel-view/ChannelView.vue";
-export default {
-  props: ["community"],
+<script lang="ts">
+import { defineComponent, PropType } from 'vue';
+import { useStore, CommunityView, Community } from '@/store';
+import MainViewTopBar from './MainViewTopBar.vue';
+import FeedView from './feed-view/FeedView.vue';
+import ChannelView from './channel-view/ChannelView.vue';
+
+export default defineComponent({
+  props: {
+    community: Object as PropType<Community>,
+  },
   data() {
     return {
-      currentView: "main",
-      currentViewType: "feed",
-      selectedComponent: "feed-view",
+      currentView: 'main',
+      currentViewType: 'feed',
+      selectedComponent: 'feed-view',
     };
   },
   components: {
@@ -25,11 +30,12 @@ export default {
     ChannelView,
   },
   computed: {
-    getCurrentView() {
-      return this.$store.getters.getCurrentCommunityView;
+    getCurrentView(): CommunityView {
+      const store = useStore();
+      return store.getters.getCurrentCommunityView;
     },
   },
-};
+});
 </script>
 
 <style lang="scss">

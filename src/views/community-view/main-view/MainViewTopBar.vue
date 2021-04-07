@@ -7,28 +7,36 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: ["currentView"],
+<script lang="ts">
+import { defineComponent, PropType } from 'vue';
+import FeedIcon from '@/assets/icons/feeds.png';
+import ChannelIcon from '@/assets/icons/hashtag.png';
+import { CommunityView } from '@/store';
+
+export default defineComponent({
+  props: {
+    currentView: { type: Object as PropType<CommunityView>, required: true },
+  },
   computed: {
     setIcon() {
       let icon;
       switch (this.currentView.type) {
-        case "feed":
-          icon = require("../../../assets/icons/feeds.png");
+        case 'feed':
+          icon = FeedIcon;
           break;
-        case "channel":
-          icon = require("../../../assets/icons/hashtag.png");
+        case 'channel':
+          icon = ChannelIcon;
           break;
         default:
-          icon = require("../../../assets/icons/feeds.png");
+          icon = FeedIcon;
           break;
       }
       return icon;
     },
   },
-};
+});
 </script>
+
 <style lang="scss">
 .mainView__topBar {
   z-index: 2000;

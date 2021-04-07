@@ -6,26 +6,32 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: ["community"],
+<script lang="ts">
+import { defineComponent, PropType } from 'vue';
+import { useStore, Community } from '@/store';
+
+export default defineComponent({
+  props: {
+    community: Object as PropType<Community>,
+  },
   methods: {
     navToCommunity() {
-      this.$store.commit({ type: "changeCommunity", value: this.community });
+      const store = useStore();
+      store.commit({ type: 'changeCommunity', value: this.community });
     },
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>
-@import "../../../assets/sass/main.scss";
+@import '@/assets/sass/main.scss';
 .community-avatar {
   height: 5rem;
   width: 5rem;
   background-color: #eee;
   border-radius: 100px;
   margin-bottom: 2rem;
-  background-image: url("../../../../src/assets/images/junto_app_icon.png");
+  background-image: url('../../../../src/assets/images/junto_app_icon.png');
   background-size: cover;
   position: relative;
 
