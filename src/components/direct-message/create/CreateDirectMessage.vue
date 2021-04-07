@@ -7,11 +7,9 @@
         v-model="message"
         v-on:keyup.enter="createDirectMessage"
       />
-      <img
-        src="../../../assets/icons/send.png"
-        class="createDirectMessage__text-field--icon"
-        alt=""
-      />
+      <svg class="createDirectMessage__text-field--icon">
+        <use href="../../../assets/icons/icons.svg#send"></use>
+      </svg>
     </div>
   </div>
 </template>
@@ -70,6 +68,8 @@ export default {
 
     &--icon {
       height: 1.7rem;
+      width: 1.7rem;
+      fill: var(--junto-primary);
     }
 
     &--input {
