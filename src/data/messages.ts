@@ -1,4 +1,4 @@
-interface ChatMessage {
+export interface ChatMessage {
   id: number;
   username: string;
   profilePicture: string;
