@@ -95,6 +95,8 @@ export default defineComponent({
     margin-bottom: 2rem;
     color: var(--junto-primary);
     appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 
     &:hover {
       cursor: pointer;
