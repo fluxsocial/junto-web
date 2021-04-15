@@ -27,5 +27,6 @@ export default defineComponent({
   flex-direction: column;
   margin-bottom: 2rem;
   color: var(--junto-primary);
+  width: 100%;
 }
 </style>
