@@ -25,7 +25,7 @@ import DirectMessage from '@/components/direct-message/display/DirectMessage.vue
 import CreateDirectMessage from '@/components/direct-message/create/CreateDirectMessage.vue';
 import { ChatMessage, messages } from '@/data/messages';
 import { format } from 'date-fns';
-import MessageDate from './MessageDate.vue';
+import MessageDate from './MessageDateHeader.vue';
 
 interface ChatItem {
   type: 'date' | 'message';
