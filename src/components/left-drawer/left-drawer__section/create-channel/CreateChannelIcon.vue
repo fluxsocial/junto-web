@@ -1,7 +1,7 @@
 <template>
   <div class="createChannelIcon" @click="showCreateChannel">
     <svg class="createChannelIcon__icon">
-      <use href="../../../../assets/icons/icons.svg#plus"></use>
+      <use href="@/assets/icons/icons.svg#plus"></use>
     </svg>
   </div>
   <create-channel
@@ -10,9 +10,11 @@
   ></create-channel>
 </template>
 
-<script>
-import CreateChannel from "./CreateChannel.vue";
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+import CreateChannel from './CreateChannel.vue';
+
+export default defineComponent({
   data() {
     return {
       activateCreateChannel: false,
@@ -20,14 +22,14 @@ export default {
   },
   methods: {
     showCreateChannel() {
-      console.log("toggling create channel view");
+      console.log('toggling create channel view');
       this.activateCreateChannel = !this.activateCreateChannel;
     },
   },
   components: {
     CreateChannel,
   },
-};
+});
 </script>
 
 <style lang="scss">

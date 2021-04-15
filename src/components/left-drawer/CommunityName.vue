@@ -4,14 +4,16 @@
   </div>
 </template>
 
+<script lang="ts">
+import { defineComponent } from 'vue';
 
-<script>
-export default {
+export default defineComponent({
   props: {
     title: String,
   },
-};
+});
 </script>
+
  <style lang="scss" scoped>
 .community-name {
   width: 100%;

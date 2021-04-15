@@ -8,14 +8,15 @@
   </div>
 </template>
 
+<script lang="ts">
+import { defineComponent } from 'vue';
+import WelcomeViewHeader from './components/WelcomeViewHeader.vue';
+import WelcomeViewLeft from './components/WelcomeViewLeft.vue';
+import WelcomeViewRight from './components/WelcomeViewRight.vue';
 
-<script>
-import WelcomeViewHeader from "./components/WelcomeViewHeader.vue";
-import WelcomeViewLeft from "./components/WelcomeViewLeft.vue";
-import WelcomeViewRight from "./components/WelcomeViewRight.vue";
-export default {
+export default defineComponent({
   components: { WelcomeViewHeader, WelcomeViewLeft, WelcomeViewRight },
-};
+});
 </script>
 
 <style lang="scss" scoped>

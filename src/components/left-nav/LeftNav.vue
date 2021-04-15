@@ -5,16 +5,17 @@
   </div>
 </template>
 
-<script>
-import CommunitiesList from "./CommunitiesList.vue";
-import BottomSection from "./BottomSection.vue";
+<script lang="ts">
+import { defineComponent } from 'vue';
+import CommunitiesList from './CommunitiesList.vue';
+import BottomSection from './BottomSection.vue';
 
-export default {
+export default defineComponent({
   components: {
     CommunitiesList,
     BottomSection,
   },
-};
+});
 </script>
 
 <style lang="scss">
@@ -31,4 +32,3 @@ export default {
   z-index: 9999;
 }
 </style>
-

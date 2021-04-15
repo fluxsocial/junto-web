@@ -10,10 +10,8 @@
   </div>
 </template>
 
-
-
 <style lang="scss">
-@import "../../../../assets/sass/main.scss";
+@import '@/assets/sass/main.scss';
 .createChannelTextField {
   &__title {
     font-size: 1.7rem;

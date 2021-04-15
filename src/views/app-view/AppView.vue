@@ -5,18 +5,18 @@
   </div>
 </template>
 
-<script>
-import LeftNav from "./../../components/left-nav/LeftNav.vue";
-import CommunityView from "./../community-view/CommunityView.vue";
+<script lang="ts">
+import { defineComponent } from 'vue';
+import LeftNav from '@/components/left-nav/LeftNav.vue';
+import CommunityView from '../community-view/CommunityView.vue';
 
-export default {
+export default defineComponent({
   components: {
     LeftNav,
     CommunityView,
   },
-};
+});
 </script>
-
 
 <style lang="scss" scoped>
 .app-view {

@@ -1,21 +1,38 @@
-import { createStore } from 'vuex'
+import { createStore, Store } from 'vuex';
 
-export default createStore({
+export interface Community {
+  name: string;
+  channels: Array<string>;
+}
+
+export interface CommunityView {
+  name: string;
+  type: 'feed' | 'channel';
+}
+
+export interface State {
+  currentCommunity: Community;
+  currentCommunityView: CommunityView;
+  communities: Array<Community>;
+  currentTheme: 'light' | 'dark';
+}
+
+const store = createStore<State>({
   state() {
     return {
       currentTheme: 'light',
-      currentCommunity: { name: "JUNTO", channels: ["home", "inspiration", "events"] },
+      currentCommunity: { name: 'JUNTO', channels: ['home', 'inspiration', 'events'] },
       currentCommunityView: { name: 'main', type: 'feed' },
       communities: [
-        { name: "JUNTO", channels: ["home", "inspiration", "events"] },
+        { name: 'JUNTO', channels: ['home', 'inspiration', 'events'] },
         {
-          name: "Holochain",
-          channels: ["home", "holo-fuel", "meetups", "when-moon"],
+          name: 'Holochain',
+          channels: ['home', 'holo-fuel', 'meetups', 'when-moon'],
         },
-        { name: "Naruto", channels: ["home", "anbu"] },
-        { name: "Hoops", channels: ["home", "hoopiddydoops"] },
+        { name: 'Naruto', channels: ['home', 'anbu'] },
+        { name: 'Hoops', channels: ['home', 'hoopiddydoops'] },
       ],
-    }
+    };
   },
   mutations: {
     // navigate to a new community
@@ -31,7 +48,7 @@ export default createStore({
 
     // Toggle theme
     toggleTheme(state, payload) {
-      let root = document.documentElement;
+      const root = document.documentElement;
 
       if (payload.value === 'light') {
         state.currentTheme = 'light';
@@ -42,8 +59,6 @@ export default createStore({
         root.style.setProperty('--junto-border-color', '#eee');
         root.style.setProperty('--junto-accent-color', '#B3808F');
         root.style.setProperty('--junto-background-color', '#fff');
-
-
       } else if (payload.value === 'dark') {
         state.currentTheme = 'dark';
         root.style.setProperty('--junto-primary-dark', '#fff');
@@ -75,8 +90,13 @@ export default createStore({
     // Get current theme
     getCurrentTheme(state) {
       return state.currentTheme;
-    }
+    },
 
-  }
+  },
+});
 
-})
+export default store;
+
+export function useStore(): Store<State> {
+  return store;
+}

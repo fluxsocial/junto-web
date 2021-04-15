@@ -9,15 +9,17 @@
     ></left-drawer-section-item>
   </div>
 </template>
-<script>
-import LeftDrawerSectionItem from "./LeftDrawerSectionItem.vue";
-export default {
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import LeftDrawerSectionItem from './LeftDrawerSectionItem.vue';
+
+export default defineComponent({
   props: {
     community: Object,
   },
-
   components: {
     LeftDrawerSectionItem,
   },
-};
+});
 </script>

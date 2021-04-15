@@ -9,28 +9,34 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: ["currentView"],
+<script lang="ts">
+import { defineComponent, PropType } from 'vue';
+import { CommunityView } from '@/store';
+
+export default defineComponent({
+  props: {
+    currentView: { type: Object as PropType<CommunityView>, required: true },
+  },
   computed: {
     setIcon() {
       let icon;
       switch (this.currentView.type) {
-        case "feed":
-          icon = "#feed";
+        case 'feed':
+          icon = '#feed';
           break;
-        case "channel":
-          icon = "#hashtag";
+        case 'channel':
+          icon = '#hashtag';
           break;
         default:
-          icon = "#feed";
+          icon = '#feed';
           break;
       }
       return icon;
     },
   },
-};
+});
 </script>
+
 <style lang="scss">
 .mainView__topBar {
   z-index: 2000;

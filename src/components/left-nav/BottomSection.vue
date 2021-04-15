@@ -5,13 +5,14 @@
   </div>
 </template>
 
-<script>
-import ProfileAvatar from "./../ui/avatar/ProfileAvatar.vue";
-import ToggleThemeButton from "./../ui/theme/ToggleThemeButton.vue";
+<script lang="ts">
+import { defineComponent } from 'vue';
+import ProfileAvatar from '../ui/avatar/ProfileAvatar.vue';
+import ToggleThemeButton from '../ui/theme/ToggleThemeButton.vue';
 
-export default {
+export default defineComponent({
   components: { ProfileAvatar, ToggleThemeButton },
-};
+});
 </script>
 
 <style lang="scss" scoped>

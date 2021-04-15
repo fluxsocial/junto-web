@@ -7,30 +7,37 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: ["title", "type"],
+<script lang="ts">
+import { defineComponent, PropType } from 'vue';
+import { useStore } from '@/store';
+
+export default defineComponent({
+  props: {
+    title: String,
+    type: String as PropType<'feed' | 'channel' | undefined>,
+  },
   computed: {
-    setIcon() {
+    setIcon(): any {
       let icon;
-      switch (this.type.toLowerCase()) {
-        case "feed":
-          icon = "#feed";
+      switch (this.type?.toLowerCase()) {
+        case 'feed':
+          icon = '#feed';
           break;
-        case "channel":
-          icon = "#hashtag";
+        case 'channel':
+          icon = '#hashtag';
           break;
         default:
-          icon = "#feed";
+          icon = '#feed';
           break;
       }
       return icon;
     },
   },
   methods: {
-    setCurrentCommunityView() {
-      this.$store.commit({
-        type: "changeCommunityView",
+    setCurrentCommunityView(): void {
+      const store = useStore();
+      store.commit({
+        type: 'changeCommunityView',
         value: {
           name: this.title,
           type: this.type,
@@ -38,7 +45,7 @@ export default {
       });
     },
   },
-};
+});
 </script>
 <style lang="scss">
 .left-drawer__section__item {

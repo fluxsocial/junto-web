@@ -15,10 +15,13 @@
     </div>
   </div>
 </template>
-<script>
-import LeftDrawerSectionItem from "./LeftDrawerSectionItem.vue";
-import CreateChannelIcon from "./create-channel/CreateChannelIcon.vue";
-export default {
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import LeftDrawerSectionItem from './LeftDrawerSectionItem.vue';
+import CreateChannelIcon from './create-channel/CreateChannelIcon.vue';
+
+export default defineComponent({
   props: {
     community: Object,
   },
@@ -27,5 +30,5 @@ export default {
     LeftDrawerSectionItem,
     CreateChannelIcon,
   },
-};
+});
 </script>
