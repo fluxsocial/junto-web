@@ -18,10 +18,14 @@
             Channels are ways to organize your conversations by topics. You can
             create up to 5 channels for your community.
           </p>
-          <create-channel-text-field></create-channel-text-field>
+          <text-field-full
+            maxLength="22"
+            title="Name"
+            description="Channel names can contain letters, numbers, hypens, and underscores."
+          ></text-field-full>
         </div>
         <div class="createChannel__dialog--bottom">
-          <create-channel-button></create-channel-button>
+          <create-button></create-button>
         </div>
       </div>
     </div>
@@ -30,13 +34,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import CreateChannelTextField from './CreateChannelTextField.vue';
-import CreateChannelButton from './CreateChannelButton.vue';
+import TextFieldFull from '../../../ui/textfields/TextFieldFull.vue';
+import CreateButton from '../../../ui/buttons/CreateButton.vue';
 
 export default defineComponent({
   components: {
-    CreateChannelTextField,
-    CreateChannelButton,
+    TextFieldFull,
+    CreateButton,
   },
   props: {
     showCreateChannel: Function,

@@ -1,13 +1,13 @@
 <template>
-  <div class="createChannelButton">
+  <div class="createButton">
     <div>&nbsp;</div>
-    <button class="createChannelButton__button">Create</button>
+    <button class="createButton__button">Create</button>
   </div>
 </template>
 
 <style lang="scss" scoped>
 @import '@/assets/sass/main.scss';
-.createChannelButton {
+.createButton {
   display: flex;
   justify-content: space-between;
 
