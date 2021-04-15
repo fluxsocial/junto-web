@@ -1,5 +1,5 @@
 <template>
-  <div class="create-community-icon">
+  <div class="create-community-icon" @click="showCreateCommunity">
     <svg class="create-community-icon__icon">
       <use href="@/assets/icons/icons.svg#plus"></use>
     </svg>
@@ -7,7 +7,32 @@
       <p class="create-community-icon__name--text">New Community</p>
     </div>
   </div>
+  <create-community
+    v-if="activateCreateCommunity"
+    :showCreateCommunity="showCreateCommunity"
+  ></create-community>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import CreateCommunity from './CreateCommunity.vue';
+
+export default defineComponent({
+  data() {
+    return {
+      activateCreateCommunity: false,
+    };
+  },
+  components: {
+    CreateCommunity,
+  },
+  methods: {
+    showCreateCommunity() {
+      this.activateCreateCommunity = !this.activateCreateCommunity;
+    },
+  },
+});
+</script>
 
 <style lang="scss" scoped>
 @import '@/assets/sass/main.scss';
@@ -17,7 +42,7 @@
   background-color: var(--junto-border-color);
   border-radius: 100px;
   margin-bottom: 2rem;
-  background-image: url('../../../src/assets/images/junto_web_rainbow.png');
+  background-image: url('../../../../src/assets/images/junto_web_rainbow.png');
   background-size: cover;
   position: relative;
   display: flex;
