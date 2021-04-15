@@ -14,8 +14,9 @@ import ProfileAvatar from '../../ui/avatar/ProfileAvatar.vue';
 
 export default defineComponent({
   props: {
-    message: Object,
+    message: { type: Object, required: true },
   },
+
   components: {
     ProfileAvatar,
   },

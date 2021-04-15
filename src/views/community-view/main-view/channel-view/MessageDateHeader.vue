@@ -23,7 +23,6 @@ export default defineComponent({
       if (isYesterday(parse(this.date))) {
         return 'Yesterday';
       }
-
       return format(this.date, 'MMM-DD-YYYY');
     },
   },
