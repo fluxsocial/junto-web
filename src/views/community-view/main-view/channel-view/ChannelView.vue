@@ -4,11 +4,11 @@
       <slot v-for="message in messageList" :key="message.value">
         <message-date
           v-if="message.type === 'date'"
-          :date="message.value"
+          :date="message.date"
         ></message-date>
         <direct-message
           v-if="message.type === 'message'"
-          :message="message.value"
+          :message="message.message"
         ></direct-message>
       </slot>
     </div>
@@ -23,9 +23,15 @@
 import { defineComponent } from 'vue';
 import DirectMessage from '@/components/direct-message/display/DirectMessage.vue';
 import CreateDirectMessage from '@/components/direct-message/create/CreateDirectMessage.vue';
-import { messages } from '@/data/messages';
+import { ChatMessage, messages } from '@/data/messages';
 import { format } from 'date-fns';
 import MessageDate from './MessageDate.vue';
+
+interface ChatItem {
+  type: 'date' | 'message';
+  date?: Date | string | number;
+  message?: ChatMessage;
+}
 
 export default defineComponent({
   mounted() {
@@ -37,9 +43,9 @@ export default defineComponent({
     };
   },
   computed: {
-    messageList(): any {
-      const obj: { [x: string]: Array<any> } = {};
-      const list: any[] = [];
+    messageList(): Array<ChatItem> {
+      const obj: { [x: string]: Array<ChatMessage> } = {};
+      const list: Array<ChatItem> = [];
 
       messages.forEach((e) => {
         const formattedDate = format(e.timestamp, 'MM/DD/YYYY');
@@ -53,13 +59,13 @@ export default defineComponent({
       Object.entries(obj).forEach(([key, value]) => {
         list.push({
           type: 'date',
-          value: key,
+          date: key,
         });
 
         value.forEach((v) => {
           list.push({
             type: 'message',
-            value: v,
+            message: v,
           });
         });
       });
@@ -68,12 +74,13 @@ export default defineComponent({
     },
   },
   methods: {
-    createDirectMessage(message: any): void {
+    createDirectMessage(message: ChatMessage): void {
       this.messages.push(message);
       setTimeout(this.scrollToBottom, 300);
     },
     scrollToBottom(): void {
-      const container: any = this.$refs.messagesContainer;
+      const container: HTMLDivElement = this.$refs
+        .messagesContainer as HTMLDivElement;
       container.scrollTop = container.scrollHeight;
     },
   },
