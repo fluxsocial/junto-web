@@ -5,6 +5,7 @@
       :key="community.name"
       :community="community"
     ></community-avatar>
+    <create-community-icon></create-community-icon>
   </div>
 </template>
 
@@ -12,6 +13,7 @@
 import { defineComponent } from 'vue';
 import { useStore } from '@/store';
 import CommunityAvatar from '../ui/avatar/CommunityAvatar.vue';
+import CreateCommunityIcon from './CreateCommunityIcon.vue';
 
 export default defineComponent({
   computed: {
@@ -20,7 +22,7 @@ export default defineComponent({
       return store.getters.getCommunities;
     },
   },
-  components: { CommunityAvatar },
+  components: { CommunityAvatar, CreateCommunityIcon },
 });
 </script>
 
