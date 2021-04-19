@@ -11,7 +11,7 @@ export interface CommunityView {
 }
 
 export interface State {
-  currentCommunity: Community;
+  currentCommunity: Community | null;
   currentCommunityView: CommunityView;
   communities: Array<Community>;
   currentTheme: 'light' | 'dark';
@@ -21,7 +21,7 @@ const store = createStore<State>({
   state() {
     return {
       currentTheme: 'light',
-      currentCommunity: { name: 'JUNTO', channels: ['home', 'inspiration', 'events'] },
+      currentCommunity: null,
       currentCommunityView: { name: 'main', type: 'feed' },
       communities: [
         { name: 'JUNTO', channels: ['home', 'inspiration', 'events'] },
