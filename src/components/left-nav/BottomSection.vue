@@ -1,7 +1,10 @@
 <template>
   <div class="left-nav__bottom-section">
     <toggle-theme-button></toggle-theme-button>
-    <profile-avatar diameter="5"></profile-avatar>
+    <profile-avatar
+      diameter="5"
+      :profileImage="require('@/assets/images/eric.png')"
+    ></profile-avatar>
   </div>
 </template>
 
