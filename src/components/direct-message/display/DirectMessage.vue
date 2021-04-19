@@ -29,7 +29,7 @@ export default defineComponent({
 .directMessage {
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   color: var(--junto-primary);
   width: 100%;
 }

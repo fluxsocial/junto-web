@@ -38,6 +38,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .directMessageMeta {
   display: flex;
+  margin-bottom: 1rem;
 
   &__sender {
     display: flex;
