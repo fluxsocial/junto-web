@@ -1,7 +1,7 @@
 <template>
   <div class="channelView">
     <div class="channelView__messages" ref="messagesContainer">
-      <slot v-for="message in messageList" :key="message.value">
+      <slot v-for="(message, index) in messageList" :key="message.value">
         <message-date
           v-if="message.type === 'date'"
           :date="message.date"
@@ -9,6 +9,7 @@
         <direct-message
           v-if="message.type === 'message'"
           :message="message.message"
+          :showAvatar="showAvatar(index)"
         ></direct-message>
       </slot>
     </div>
@@ -24,7 +25,7 @@ import { defineComponent } from 'vue';
 import DirectMessage from '@/components/direct-message/display/DirectMessage.vue';
 import CreateDirectMessage from '@/components/direct-message/create/CreateDirectMessage.vue';
 import { ChatMessage, messages } from '@/data/messages';
-import { format } from 'date-fns';
+import { format, differenceInMinutes } from 'date-fns';
 import MessageDate from './MessageDateHeader.vue';
 
 interface ChatItem {
@@ -82,6 +83,26 @@ export default defineComponent({
       const container: HTMLDivElement = this.$refs
         .messagesContainer as HTMLDivElement;
       container.scrollTop = container.scrollHeight;
+    },
+    showAvatar(index: number): boolean {
+      const previousMessage = this.messageList[index - 1];
+      const message = this.messageList[index];
+
+      if (previousMessage.type === 'date') {
+        return true;
+      }
+
+      if (previousMessage.message?.username !== message.message?.username) {
+        return true;
+      }
+
+      return (
+        previousMessage.message?.username === message.message?.username
+        && differenceInMinutes(
+          message.message?.timestamp ?? Date.now(),
+          previousMessage.message?.timestamp ?? Date.now(),
+        ) >= 2
+      );
     },
   },
 
