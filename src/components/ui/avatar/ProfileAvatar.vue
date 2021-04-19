@@ -8,7 +8,7 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   props: {
     profileImage: { type: String, default: '' },
-    diameter: { type: Number, default: 30 },
+    diameter: { type: String },
   },
   computed: {
     avatarDiameter(): string {
