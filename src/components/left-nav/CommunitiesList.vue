@@ -4,6 +4,7 @@
       v-for="community in getCommunities"
       :key="community.name"
       :community="community"
+      :profileImage="community.profileImage"
     ></community-avatar>
     <create-community-icon></create-community-icon>
   </div>
