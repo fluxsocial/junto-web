@@ -3,6 +3,7 @@ import { createStore, Store } from 'vuex';
 export interface Community {
   name: string;
   channels: Array<string>;
+  profileImage: string;
 }
 
 export interface CommunityView {
@@ -24,13 +25,26 @@ const store = createStore<State>({
       currentCommunity: null,
       currentCommunityView: { name: 'main', type: 'feed' },
       communities: [
-        { name: 'JUNTO', channels: ['home', 'inspiration', 'events'] },
+        {
+          name: 'JUNTO',
+          channels: ['home', 'inspiration', 'events'],
+          profileImage: require('@/assets/images/junto_app_icon.png'),
+        },
         {
           name: 'Holochain',
           channels: ['home', 'holo-fuel', 'meetups', 'when-moon'],
+          profileImage: require('@/assets/images/junto_web_placeholder--holochain.png'),
         },
-        { name: 'Naruto', channels: ['home', 'anbu'] },
-        { name: 'Hoops', channels: ['home', 'hoopiddydoops'] },
+        {
+          name: 'Soul Tribe',
+          channels: ['home', 'anbu'],
+          profileImage: require('@/assets/images/junto_web_placeholder--soul.png'),
+        },
+        {
+          name: 'Qigong',
+          channels: ['home', 'qigong'],
+          profileImage: require('@/assets/images/junto_web_placeholder--temple.png'),
+        },
       ],
     };
   },

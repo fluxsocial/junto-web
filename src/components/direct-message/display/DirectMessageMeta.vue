@@ -1,8 +1,10 @@
 <template>
   <div class="directMessageMeta">
     <div class="directMessageMeta__sender">
-      <profile-avatar :diameter="3"></profile-avatar>
-      <img src="" alt="" class="directMessageMeta__sender--icon" />
+      <profile-avatar
+        :diameter="3"
+        :profileImage="message.profileImage"
+      ></profile-avatar>
       <p class="directMessageMeta__sender--username">{{ message.username }}</p>
       <p class="directMessageMeta__sender--time">{{ time }}</p>
     </div>
