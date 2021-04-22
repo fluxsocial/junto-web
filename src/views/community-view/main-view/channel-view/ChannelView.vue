@@ -1,19 +1,29 @@
 <template>
   <div class="channelView">
-    <div class="channelView__messages" ref="messagesContainer">
-      <slot v-for="(message, index) in messageList" :key="message.value">
-        <message-date
-          v-if="message.type === 'date'"
-          :date="message.date"
-        ></message-date>
-        <direct-message
-          v-if="message.type === 'message'"
-          :message="message.message"
-          :showAvatar="showAvatar(index)"
-        ></direct-message>
-      </slot>
-    </div>
-
+      <dynamic-scroller
+        :items="messageList"
+        :min-item-size="150"
+        class="channelView__messages"
+        ref="messagesContainer"
+      >
+        <template v-slot="{ item, index, active }">
+          <dynamic-scroller-item
+            :item="item"
+            :active="active"
+            :data-index="index"
+          >
+            <message-date
+              v-if="item.type === 'date'"
+              :date="item.date"
+            ></message-date>
+            <direct-message
+              v-if="item.type === 'message'"
+              :message="item.message"
+              :showAvatar="showAvatar(index)"
+            ></direct-message>
+          </dynamic-scroller-item>
+        </template>
+      </dynamic-scroller>
     <create-direct-message
       :createMessage="createDirectMessage"
     ></create-direct-message>
@@ -22,6 +32,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { DynamicScroller, DynamicScrollerItem } from 'vue-virtual-scroller';
 import DirectMessage from '@/components/direct-message/display/DirectMessage.vue';
 import CreateDirectMessage from '@/components/direct-message/create/CreateDirectMessage.vue';
 import { ChatMessage, messages } from '@/data/messages';
@@ -29,6 +40,7 @@ import { format, differenceInMinutes } from 'date-fns';
 import MessageDate from './MessageDateHeader.vue';
 
 interface ChatItem {
+  id: string;
   type: 'date' | 'message';
   date?: Date | string | number;
   message?: ChatMessage;
@@ -47,6 +59,7 @@ export default defineComponent({
     messageList(): Array<ChatItem> {
       const obj: { [x: string]: Array<ChatMessage> } = {};
       const list: Array<ChatItem> = [];
+      let i = 0;
 
       messages.forEach((e) => {
         const formattedDate = format(e.timestamp, 'MM/DD/YYYY');
@@ -59,18 +72,22 @@ export default defineComponent({
 
       Object.entries(obj).forEach(([key, value]) => {
         list.push({
+          id: i.toString(),
           type: 'date',
           date: key,
         });
+        i += 1;
 
         value.forEach((v) => {
           list.push({
+            id: i.toString(),
             type: 'message',
             message: v,
           });
+          i += 1;
         });
       });
-
+      console.log(list);
       return list;
     },
   },
@@ -110,6 +127,8 @@ export default defineComponent({
     DirectMessage,
     CreateDirectMessage,
     MessageDate,
+    DynamicScroller,
+    DynamicScrollerItem,
   },
 });
 </script>
@@ -129,6 +148,7 @@ export default defineComponent({
     flex-direction: column;
     align-items: center;
     overflow: scroll;
+    width: 100%;
     // 9.5 = 7.5rem (height of MainVewTopBar) + 2rem
     padding: 9.5rem 2rem 7.5rem 2rem;
   }
