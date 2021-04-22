@@ -28,7 +28,7 @@ export default defineComponent({
         .toISOString()
         .split('+')[0]
         .replace('Z', '');
-      return format(time, 'hh:mm A');
+      return format(time, 'h:mm A');
     },
   },
   components: {
