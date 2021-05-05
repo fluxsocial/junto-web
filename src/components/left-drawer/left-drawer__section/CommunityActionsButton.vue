@@ -17,7 +17,7 @@
   }
   &__text {
     font-size: 1.2rem;
-    letter-spacing: 0.5;
+    letter-spacing: 1px;
     text-transform: uppercase;
     text-align: center;
     color: white;
