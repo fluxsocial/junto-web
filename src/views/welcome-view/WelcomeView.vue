@@ -25,6 +25,7 @@ export default defineComponent({
   width: 100vw;
   display: flex;
   flex-direction: column;
+  background-color: var(--junto-background-color);
 
   &__container {
     display: flex;
