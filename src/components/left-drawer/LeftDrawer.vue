@@ -1,11 +1,17 @@
 <template>
   <div class="left-drawer" v-if="community != null">
-    <community-name :title="community.name"></community-name>
-    <left-drawer-section type="Feed"></left-drawer-section>
-    <left-drawer-section
-      type="Channel"
-      :community="community"
-    ></left-drawer-section>
+    <div class="left-drawer__top">
+      <community-name :title="community.name"></community-name>
+      <left-drawer-section type="Feed"></left-drawer-section>
+      <left-drawer-section
+        type="Channel"
+        :community="community"
+      ></left-drawer-section>
+    </div>
+
+    <div class="left-drawer__bottom">
+      <community-actions-button></community-actions-button>
+    </div>
   </div>
 </template>
 
@@ -13,13 +19,14 @@
 import { defineComponent, PropType } from 'vue';
 import { Community } from '@/store/index';
 import CommunityName from './CommunityName.vue';
+import CommunityActionsButton from './left-drawer__section/CommunityActionsButton.vue';
 import LeftDrawerSection from './left-drawer__section/LeftDrawerSection.vue';
 
 export default defineComponent({
   props: {
     community: Object as PropType<Community>,
   },
-  components: { CommunityName, LeftDrawerSection },
+  components: { CommunityName, LeftDrawerSection, CommunityActionsButton },
 });
 </script>
 
@@ -32,5 +39,6 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   border-right: 1px solid var(--junto-border-color);
+  justify-content: space-between;
 }
 </style>
