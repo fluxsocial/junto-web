@@ -8,10 +8,6 @@
         :community="community"
       ></left-drawer-section>
     </div>
-
-    <div class="left-drawer__bottom">
-      <community-actions-button></community-actions-button>
-    </div>
   </div>
 </template>
 
@@ -19,14 +15,13 @@
 import { defineComponent, PropType } from 'vue';
 import { Community } from '@/store/index';
 import CommunityName from './CommunityName.vue';
-import CommunityActionsButton from './left-drawer__section/CommunityActionsButton.vue';
 import LeftDrawerSection from './left-drawer__section/LeftDrawerSection.vue';
 
 export default defineComponent({
   props: {
     community: Object as PropType<Community>,
   },
-  components: { CommunityName, LeftDrawerSection, CommunityActionsButton },
+  components: { CommunityName, LeftDrawerSection },
 });
 </script>
 
