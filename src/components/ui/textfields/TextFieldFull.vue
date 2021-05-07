@@ -17,7 +17,7 @@ export default defineComponent({
   props: {
     title: { type: String, required: true },
     description: { type: String, required: true },
-    maxLength: Number,
+    maxLength: String,
   },
 });
 </script>
