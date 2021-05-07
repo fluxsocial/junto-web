@@ -14,7 +14,7 @@
 import { defineComponent } from 'vue';
 import { useStore } from '@/store';
 import CommunityAvatar from '../ui/avatar/CommunityAvatar.vue';
-import CreateCommunityIcon from './create-community/CreateCommunityIcon.vue';
+import CreateCommunityIcon from './community-actions/CreateCommunityIcon.vue';
 
 export default defineComponent({
   computed: {

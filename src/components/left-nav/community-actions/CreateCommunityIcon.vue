@@ -7,15 +7,15 @@
       <p class="create-community-icon__name--text">New Community</p>
     </div>
   </div>
-  <create-community
+  <community-actions
     v-if="activateCreateCommunity"
     :showCreateCommunity="showCreateCommunity"
-  ></create-community>
+  ></community-actions>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import CreateCommunity from './CreateCommunity.vue';
+import CommunityActions from './CommunityActions.vue';
 
 export default defineComponent({
   data() {
@@ -24,7 +24,7 @@ export default defineComponent({
     };
   },
   components: {
-    CreateCommunity,
+    CommunityActions,
   },
   methods: {
     showCreateCommunity() {
