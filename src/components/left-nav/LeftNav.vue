@@ -30,5 +30,6 @@ export default defineComponent({
   flex-direction: column;
   justify-content: space-between;
   z-index: 9999;
+  position: relative;
 }
 </style>
