@@ -7,15 +7,15 @@
       <p class="create-community-icon__name--text">New Community</p>
     </div>
   </div>
-  <community-actions
+  <create-community
     v-if="activateCreateCommunity"
     :showCreateCommunity="showCreateCommunity"
-  ></community-actions>
+  ></create-community>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import CommunityActions from './CommunityActions.vue';
+import CreateCommunity from './CreateCommunity.vue';
 
 export default defineComponent({
   data() {
@@ -24,7 +24,7 @@ export default defineComponent({
     };
   },
   components: {
-    CommunityActions,
+    CreateCommunity,
   },
   methods: {
     showCreateCommunity() {
@@ -37,10 +37,11 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '@/assets/sass/main.scss';
 .create-community-icon {
-  min-height: 5rem;
-  min-width: 5rem;
+  height: 5rem;
+  width: 5rem;
   background-color: var(--junto-border-color);
   border-radius: 100px;
+  margin-bottom: 2rem;
   background-image: url('../../../../src/assets/images/junto_web_rainbow.png');
   background-size: cover;
   position: relative;
