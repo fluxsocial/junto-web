@@ -1,6 +1,9 @@
 <template>
   <div class="directMessage">
-    <direct-message-meta :message="message"></direct-message-meta>
+    <direct-message-meta
+      v-if="showAvatar"
+      :message="message"
+    ></direct-message-meta>
     <text-message :text="message.message"></text-message>
   </div>
 </template>
@@ -13,6 +16,7 @@ import DirectMessageMeta from './DirectMessageMeta.vue';
 export default defineComponent({
   props: {
     message: Object,
+    showAvatar: Boolean,
   },
   components: {
     TextMessage,
@@ -25,7 +29,7 @@ export default defineComponent({
 .directMessage {
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
   color: var(--junto-primary);
   width: 100%;
 }

@@ -1,9 +1,16 @@
 <template>
-  <div ref="drawer" :class="{ 'left-drawer--no-select': isDragging }" class="left-drawer">
-    <span role="presentation" class="left-drawer__handle" @mousedown="startResize"></span>
-    <community-name :title="community.name"></community-name>
-    <left-drawer-section type="Feed"></left-drawer-section>
-    <left-drawer-section type="Channel" :community="community"></left-drawer-section>
+  <div
+    ref="drawer"
+    v-if="community != null"
+    :class="{ 'left-drawer--no-select': isDragging }"
+    class="left-drawer"
+  >
+    <div class="left-drawer__top">
+      <span role="presentation" class="left-drawer__handle" @mousedown="startResize"></span>
+      <community-name :title="community.name"></community-name>
+      <left-drawer-section type="Feed"></left-drawer-section>
+      <left-drawer-section type="Channel" :community="community"></left-drawer-section>
+    </div>
   </div>
 </template>
 

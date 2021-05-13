@@ -19,7 +19,6 @@ export default defineComponent({
 <style lang="scss" scoped>
 .textMessage {
   &__text {
-    margin-top: 1rem;
     font-size: 1.5rem;
     font-weight: 400;
   }

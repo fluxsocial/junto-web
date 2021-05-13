@@ -4,6 +4,7 @@
       <use href="@/assets/icons/icons.svg#plus"></use>
     </svg>
   </div>
+
   <create-channel
     v-if="activateCreateChannel"
     :showCreateChannel="showCreateChannel"

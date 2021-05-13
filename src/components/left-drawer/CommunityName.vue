@@ -18,7 +18,7 @@ export default defineComponent({
 .community-name {
   width: 100%;
   display: flex;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 
   &__name {
     font-size: 2.2rem;

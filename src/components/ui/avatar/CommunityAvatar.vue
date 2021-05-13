@@ -1,5 +1,9 @@
 <template>
-  <div class="community-avatar" @click="navToCommunity()">
+  <div
+    class="community-avatar"
+    @click="navToCommunity()"
+    :style="avatarStyling"
+  >
     <div class="community-avatar__name">
       <p class="community-avatar__name--text">{{ community.name }}</p>
     </div>
@@ -13,11 +17,19 @@ import { useStore, Community } from '@/store';
 export default defineComponent({
   props: {
     community: Object as PropType<Community>,
+    profileImage: {
+      default: require('@/assets/images/junto_app_icon.png'),
+    },
   },
   methods: {
     navToCommunity() {
       const store = useStore();
       store.commit({ type: 'changeCommunity', value: this.community });
+    },
+  },
+  computed: {
+    avatarStyling(): string {
+      return `background-image: url('${this.profileImage}');`;
     },
   },
 });
@@ -26,12 +38,11 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '@/assets/sass/main.scss';
 .community-avatar {
-  height: 5rem;
-  width: 5rem;
+  min-height: 5rem;
+  min-width: 5rem;
   background-color: var(--junto-border-color);
   border-radius: 100px;
   margin-bottom: 2rem;
-  background-image: url('../../../../src/assets/images/junto_app_icon.png');
   background-size: cover;
   position: relative;
 

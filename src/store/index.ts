@@ -3,6 +3,7 @@ import { createStore, Store } from 'vuex';
 export interface Community {
   name: string;
   channels: Array<string>;
+  profileImage: string;
 }
 
 export interface CommunityView {
@@ -11,7 +12,7 @@ export interface CommunityView {
 }
 
 export interface State {
-  currentCommunity: Community;
+  currentCommunity: Community | null;
   currentCommunityView: CommunityView;
   communities: Array<Community>;
   currentTheme: 'light' | 'dark';
@@ -21,16 +22,29 @@ const store = createStore<State>({
   state() {
     return {
       currentTheme: 'light',
-      currentCommunity: { name: 'JUNTO', channels: ['home', 'inspiration', 'events'] },
+      currentCommunity: null,
       currentCommunityView: { name: 'main', type: 'feed' },
       communities: [
-        { name: 'JUNTO', channels: ['home', 'inspiration', 'events'] },
+        {
+          name: 'JUNTO',
+          channels: ['home', 'inspiration', 'events'],
+          profileImage: require('@/assets/images/junto_app_icon.png'),
+        },
         {
           name: 'Holochain',
           channels: ['home', 'holo-fuel', 'meetups', 'when-moon'],
+          profileImage: require('@/assets/images/junto_web_placeholder--holochain.png'),
         },
-        { name: 'Naruto', channels: ['home', 'anbu'] },
-        { name: 'Hoops', channels: ['home', 'hoopiddydoops'] },
+        {
+          name: 'Soul Tribe',
+          channels: ['home', 'anbu'],
+          profileImage: require('@/assets/images/junto_web_placeholder--soul.png'),
+        },
+        {
+          name: 'Qigong',
+          channels: ['home', 'qigong'],
+          profileImage: require('@/assets/images/junto_web_placeholder--temple.png'),
+        },
       ],
     };
   },
@@ -59,6 +73,7 @@ const store = createStore<State>({
         root.style.setProperty('--junto-border-color', '#eee');
         root.style.setProperty('--junto-accent-color', '#B3808F');
         root.style.setProperty('--junto-background-color', '#fff');
+        root.style.setProperty('--junto-background-rgba', '255, 255, 255');
       } else if (payload.value === 'dark') {
         state.currentTheme = 'dark';
         root.style.setProperty('--junto-primary-dark', '#fff');
@@ -68,6 +83,7 @@ const store = createStore<State>({
         root.style.setProperty('--junto-border-color', '#555');
         root.style.setProperty('--junto-accent-color', '#B3808F');
         root.style.setProperty('--junto-background-color', '#333');
+        root.style.setProperty('--junto-background-rgba', '0, 0, 0');
       }
     },
   },

@@ -68,6 +68,7 @@ export default defineComponent({
 
 <style lang="scss">
 @import '../../../assets/sass/main.scss';
+
 .createCommunity {
   position: absolute;
   top: 0;
@@ -89,6 +90,7 @@ export default defineComponent({
   &__privacy {
     outline: none;
     border: 1px solid var(--junto-border-color);
+    background-color: var(--junto-background-color);
     padding: 0.5rem 1rem;
     font-size: 1.4rem;
     font-weight: 500;
@@ -104,8 +106,7 @@ export default defineComponent({
   }
 
   &__dialog {
-    height: 60vh;
-    width: 30vw;
+    max-width: 33vw;
     background-color: var(--junto-background-color);
     border-radius: 25px;
     padding: 3rem;
