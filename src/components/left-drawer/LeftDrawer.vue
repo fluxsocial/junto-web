@@ -61,7 +61,7 @@ export default defineComponent({
   padding: 2rem;
   width: 15vw;
   min-width: 20rem;
-  max-width: 200rem;
+  max-width: 50rem;
   flex-shrink: 0;
   background-color: var(--junto-background-color);
   display: flex;
