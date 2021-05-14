@@ -7,8 +7,8 @@
 </template>
 
 <script lang="ts">
+import { useStore } from '@/store';
 import { defineComponent } from 'vue';
-import communities from '@/data/communities';
 import MainViewTopBar from './MainViewTopBar.vue';
 import FeedView from './feed-view/FeedView.vue';
 import ChannelView from './channel-view/ChannelView.vue';
@@ -21,13 +21,15 @@ export default defineComponent({
   },
   computed: {
     community() {
+      const store = useStore();
       const { communityId } = this.$route.params;
-      return communities.find((c) => c.id === communityId);
+      return store.getters.getCommunities.find((c) => c.id === communityId);
     },
     currentView() {
-      const { communityId, channelId } = this.$route.params;
-      const community = communities.find((c) => c.id === communityId);
-      return community?.channels.find((c) => c.id === channelId);
+      const store = useStore();
+      const { perspectiveId, communityId } = this.$route.params;
+      const community = store.getters.getCommunities.find((c) => c.id === communityId);
+      return community?.perspectives.find((c) => c.id === perspectiveId);
     },
   },
 });
