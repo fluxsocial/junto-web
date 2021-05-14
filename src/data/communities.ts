@@ -2,26 +2,45 @@ export default [
   {
     id: '123',
     name: 'JUNTO',
-    channels: [
+    perspectives: [
+      {
+        id: '123sdf',
+        name: 'Feeds',
+        type: 'group',
+      },
+      {
+        id: '45829',
+        name: 'Channels',
+        type: 'group',
+      },
+      {
+        id: '453633',
+        name: 'Classrooms',
+        type: 'group',
+      },
       {
         id: '1234234',
         name: 'main',
         type: 'feed',
+        parentId: '123sdf',
       },
       {
         id: '123',
         name: 'home',
         type: 'channel',
+        parentId: '45829',
       },
       {
         id: '1234',
         name: 'inspiration',
         type: 'channel',
+        parentId: '45829',
       },
       {
         id: '12345',
-        name: 'events',
+        name: 'maths',
         type: 'channel',
+        parentId: '453633',
       },
     ],
     profileImage: require('@/assets/images/junto_app_icon.png'),
@@ -29,7 +48,7 @@ export default [
   {
     id: '1234',
     name: 'Holochain',
-    channels: [
+    perspectives: [
       {
         id: '1234234',
         name: 'main',
@@ -56,7 +75,7 @@ export default [
   {
     id: '12345',
     name: 'Soul Tribe',
-    channels: [
+    perspectives: [
       {
         id: '1234234',
         name: 'main',
@@ -78,7 +97,7 @@ export default [
   {
     id: '12346',
     name: 'Qigong',
-    channels: [
+    perspectives: [
       {
         id: '1234234',
         name: 'main',
