@@ -1,38 +1,33 @@
 <template>
   <div class="mainView" v-if="community != null">
-    <main-view-top-bar :currentView="getCurrentView"></main-view-top-bar>
-    <feed-view v-if="getCurrentView.type === 'feed'"> </feed-view>
-    <channel-view v-if="getCurrentView.type === 'channel'"> </channel-view>
+    <main-view-top-bar :currentView="currentView"></main-view-top-bar>
+    <feed-view v-if="currentView.type === 'feed'"></feed-view>
+    <channel-view v-if="currentView.type === 'channel'"></channel-view>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
-import { useStore, CommunityView, Community } from '@/store';
+import { defineComponent } from 'vue';
+import communities from '@/data/communities';
 import MainViewTopBar from './MainViewTopBar.vue';
 import FeedView from './feed-view/FeedView.vue';
 import ChannelView from './channel-view/ChannelView.vue';
 
 export default defineComponent({
-  props: {
-    community: Object as PropType<Community>,
-  },
-  data() {
-    return {
-      currentView: 'main',
-      currentViewType: 'feed',
-      selectedComponent: 'feed-view',
-    };
-  },
   components: {
     MainViewTopBar,
     FeedView,
     ChannelView,
   },
   computed: {
-    getCurrentView(): CommunityView {
-      const store = useStore();
-      return store.getters.getCurrentCommunityView;
+    community() {
+      const { communityId } = this.$route.params;
+      return communities.find((c) => c.id === communityId);
+    },
+    currentView() {
+      const { communityId, channelId } = this.$route.params;
+      const community = communities.find((c) => c.id === communityId);
+      return community?.channels.find((c) => c.id === channelId);
     },
   },
 });

@@ -1,19 +1,24 @@
 <template>
   <div class="app-view">
     <left-nav></left-nav>
-    <community-view></community-view>
+    <router-view></router-view>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import LeftNav from '@/components/left-nav/LeftNav.vue';
-import CommunityView from '../community-view/CommunityView.vue';
 
 export default defineComponent({
   components: {
     LeftNav,
-    CommunityView,
+  },
+  created() {
+    // TODO: Check if user is logged in
+    const isLoggedIn = true;
+    if (!isLoggedIn) {
+      this.$router.push('/signup');
+    }
   },
 });
 </script>

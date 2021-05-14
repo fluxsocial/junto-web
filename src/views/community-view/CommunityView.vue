@@ -1,25 +1,23 @@
 <template>
   <div class="community-view">
-    <left-drawer :community="getCurrentCommunity"></left-drawer>
-    <main-view :community="getCurrentCommunity"></main-view>
+    <left-drawer :community="currentCommunity"></left-drawer>
+    <router-view :community="currentCommunity"></router-view>
   </div>
 </template>
 
 <script lang="ts">
-import { useStore } from '@/store';
+import communities from '@/data/communities';
 import { defineComponent } from 'vue';
 import LeftDrawer from '@/components/left-drawer/LeftDrawer.vue';
-import MainView from './main-view/MainView.vue';
 
 export default defineComponent({
   components: {
     LeftDrawer,
-    MainView,
   },
   computed: {
-    getCurrentCommunity() {
-      const store = useStore();
-      return store.getters.getCurrentCommunity;
+    currentCommunity() {
+      const { communityId } = this.$route.params;
+      return communities.find((community) => community.id === communityId);
     },
   },
 });
