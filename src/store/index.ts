@@ -1,7 +1,7 @@
 import communities from '@/data/communities';
 import { createStore, Store } from 'vuex';
 
-export interface Channel {
+export interface Perspective {
   id: string;
   name: string;
   type: string;
@@ -10,18 +10,12 @@ export interface Channel {
 export interface Community {
   id: string;
   name: string;
-  channels: Array<Channel>;
+  perspectives: Array<Perspective>;
   profileImage: string;
-}
-
-export interface CommunityView {
-  name: string;
-  type: 'feed' | 'channel';
 }
 
 export interface State {
   currentCommunity: Community | null;
-  currentCommunityView: CommunityView;
   communities: Array<Community>;
   currentTheme: 'light' | 'dark';
 }
@@ -31,20 +25,30 @@ const store = createStore<State>({
     return {
       currentTheme: 'light',
       currentCommunity: null,
-      currentCommunityView: { name: 'main', type: 'feed' },
       communities,
     };
   },
   mutations: {
     // navigate to a new community
     changeCommunity(state, payload) {
-      console.log('changing community');
       state.currentCommunity = payload.value;
     },
 
-    // navigate to a different view within a community (i.e. feeds, channels, etc)
-    changeCommunityView(state, payload) {
-      state.currentCommunityView = payload.value;
+    createChannel(state, { channel, communityId }) {
+      state.communities = state.communities.map((community) => {
+        if (community.id === communityId) {
+          return { ...community, perspectives: [...community.perspectives, { ...channel }] };
+        } return community;
+      });
+    },
+
+    createGroup(state, { name, communityId }: { name: string, communityId: string}) {
+      state.communities = state.communities.map((community) => {
+        if (community.id === communityId) {
+          // TODO: Generate new ids
+          return { ...community, perspectives: [...community.perspectives, { id: '345kj345', name, type: 'group' }] };
+        } return community;
+      });
     },
 
     // Toggle theme
@@ -77,18 +81,7 @@ const store = createStore<State>({
   getters: {
     // Get the list of communities a user is a part of
     getCommunities(state) {
-      console.log(state.communities);
       return state.communities;
-    },
-    // Get the current community the user is viewing
-    getCurrentCommunity(state) {
-      return state.currentCommunity;
-    },
-
-    // Get the view (i.e. feed,  channel) of the community a user is currently on
-    getCurrentCommunityView(state) {
-      console.log(state.currentCommunityView);
-      return state.currentCommunityView;
     },
     // Get current theme
     getCurrentTheme(state) {
