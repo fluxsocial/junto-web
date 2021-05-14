@@ -3,10 +3,13 @@
     <div class="left-drawer__section--title">
       <p class="left-drawer__section--title--name">FEEDS</p>
     </div>
-    <left-drawer-section-item
-      title="main"
-      type="feed"
-    ></left-drawer-section-item>
+    <div class="left-drawer__section--items">
+      <left-drawer-section-item
+        v-for="channel in community.channels.filter(c => c.type === 'feed')"
+        :key="channel"
+        :channel="channel"
+      ></left-drawer-section-item>
+    </div>
   </div>
 </template>
 

@@ -1,10 +1,7 @@
 <template>
   <div class="left-drawer__section">
-    <channels-section
-      v-if="sectionType === 'channel'"
-      :community="community"
-    ></channels-section>
-    <feeds-section v-if="sectionType === 'feed'"></feeds-section>
+    <channels-section v-if="sectionType === 'channel'" :community="community"></channels-section>
+    <feeds-section :community="community" v-if="sectionType === 'feed'"></feeds-section>
   </div>
 </template>
 
