@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import communities from '@/data/communities';
+import { useStore } from '@/store';
 import { defineComponent } from 'vue';
 import LeftDrawer from '@/components/left-drawer/LeftDrawer.vue';
 
@@ -16,8 +16,9 @@ export default defineComponent({
   },
   computed: {
     currentCommunity() {
+      const store = useStore();
       const { communityId } = this.$route.params;
-      return communities.find((community) => community.id === communityId);
+      return store.getters.getCommunities.find((community) => community.id === communityId);
     },
   },
 });
