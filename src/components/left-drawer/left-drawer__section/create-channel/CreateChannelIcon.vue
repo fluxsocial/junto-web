@@ -1,5 +1,5 @@
 <template>
-  <div class="createChannelIcon" @click="showCreateChannel">
+  <div class="createChannelIcon" @click.prevent="showCreateChannel">
     <svg class="createChannelIcon__icon">
       <use href="@/assets/icons/icons.svg#plus"></use>
     </svg>
@@ -8,6 +8,7 @@
   <create-channel
     v-if="activateCreateChannel"
     :showCreateChannel="showCreateChannel"
+    :group="group"
   ></create-channel>
 </template>
 
@@ -16,6 +17,9 @@ import { defineComponent } from 'vue';
 import CreateChannel from './CreateChannel.vue';
 
 export default defineComponent({
+  props: {
+    group: Object,
+  },
   data() {
     return {
       activateCreateChannel: false,
@@ -23,7 +27,6 @@ export default defineComponent({
   },
   methods: {
     showCreateChannel() {
-      console.log('toggling create channel view');
       this.activateCreateChannel = !this.activateCreateChannel;
     },
   },
