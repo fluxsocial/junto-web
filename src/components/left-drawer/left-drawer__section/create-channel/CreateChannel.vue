@@ -19,13 +19,14 @@
             create up to 5 channels for your community.
           </p>
           <text-field-full
+            v-model="channelName"
             maxLength="22"
             title="Name"
             description="Channel names can contain letters, numbers, hypens, and underscores."
           ></text-field-full>
         </div>
         <div class="createChannel__dialog--bottom">
-          <create-button></create-button>
+          <create-button @click="createChannel"></create-button>
         </div>
       </div>
     </div>
@@ -34,6 +35,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { useStore } from '@/store';
 import TextFieldFull from '../../../ui/textfields/TextFieldFull.vue';
 import CreateButton from '../../../ui/buttons/CreateButton.vue';
 
@@ -42,8 +44,37 @@ export default defineComponent({
     TextFieldFull,
     CreateButton,
   },
+  data() {
+    return {
+      channelName: '',
+    };
+  },
   props: {
-    showCreateChannel: Function,
+    group: {
+      type: Object,
+      required: true,
+    },
+    showCreateChannel: {
+      type: Function,
+      required: true,
+    },
+  },
+  methods: {
+    createChannel() {
+      const store = useStore();
+      const { communityId } = this.$route.params;
+      console.log('create channel');
+      store.commit('createChannel', {
+        channel: {
+          id: '123123',
+          name: this.channelName,
+          type: 'channel',
+          parentId: this.group.id,
+        },
+        communityId,
+      });
+      this.showCreateChannel();
+    },
   },
 });
 </script>
