@@ -2,7 +2,7 @@
   <div class="textFieldFull">
     <h2 class="textFieldFull__title">{{ title }}</h2>
     <div class="textFieldFull__input">
-      <input class="textFieldFull__input--field" :maxlength="maxLength" />
+      <input :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" class="textFieldFull__input--field" :maxlength="maxLength" />
     </div>
     <p class="textFieldFull__description">
       {{ description }}
@@ -14,10 +14,12 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
+  emits: ['update:modelValue'],
   props: {
     title: { type: String, required: true },
     description: { type: String, required: true },
     maxLength: String,
+    modelValue: { type: String },
   },
 });
 </script>
