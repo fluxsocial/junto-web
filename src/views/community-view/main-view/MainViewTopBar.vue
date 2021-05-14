@@ -2,16 +2,13 @@
   <div class="mainView__topBar">
     <div class="mainView__topBar--title">
       <svg class="mainView__topBar--title--icon">
-        <use :href="require('../../../assets/icons/icons.svg') + setIcon"></use>
+        <use :href="require('../../../assets/icons/icons.svg') + setIcon" />
       </svg>
       <p class="mainView__topBar--title--name">{{ currentView.name }}</p>
     </div>
     <div class="mainView__topBar--action-items">
-      <svg
-        class="mainView__topBar--action-items--invite"
-        @click="getInviteCode"
-      >
-        <use href="@/assets/icons/icons.svg#add-user"></use>
+      <svg class="mainView__topBar--action-items--invite" @click="getInviteCode">
+        <use href="@/assets/icons/icons.svg#add-user" />
       </svg>
     </div>
   </div>
@@ -19,11 +16,11 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import { CommunityView } from '@/store';
+import { Perspective } from '@/store';
 
 export default defineComponent({
   props: {
-    currentView: { type: Object as PropType<CommunityView>, required: true },
+    currentView: { type: Object as PropType<Perspective>, required: true },
   },
   computed: {
     setIcon() {
