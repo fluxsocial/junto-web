@@ -1,8 +1,16 @@
+import communities from '@/data/communities';
 import { createStore, Store } from 'vuex';
 
-export interface Community {
+export interface Channel {
+  id: string;
   name: string;
-  channels: Array<string>;
+  type: string;
+}
+
+export interface Community {
+  id: string;
+  name: string;
+  channels: Array<Channel>;
   profileImage: string;
 }
 
@@ -24,28 +32,7 @@ const store = createStore<State>({
       currentTheme: 'light',
       currentCommunity: null,
       currentCommunityView: { name: 'main', type: 'feed' },
-      communities: [
-        {
-          name: 'JUNTO',
-          channels: ['home', 'inspiration', 'events'],
-          profileImage: require('@/assets/images/junto_app_icon.png'),
-        },
-        {
-          name: 'Holochain',
-          channels: ['home', 'holo-fuel', 'meetups', 'when-moon'],
-          profileImage: require('@/assets/images/junto_web_placeholder--holochain.png'),
-        },
-        {
-          name: 'Soul Tribe',
-          channels: ['home', 'anbu'],
-          profileImage: require('@/assets/images/junto_web_placeholder--soul.png'),
-        },
-        {
-          name: 'Qigong',
-          channels: ['home', 'qigong'],
-          profileImage: require('@/assets/images/junto_web_placeholder--temple.png'),
-        },
-      ],
+      communities,
     };
   },
   mutations: {
@@ -107,7 +94,6 @@ const store = createStore<State>({
     getCurrentTheme(state) {
       return state.currentTheme;
     },
-
   },
 });
 
