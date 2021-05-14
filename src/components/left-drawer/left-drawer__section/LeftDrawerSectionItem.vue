@@ -1,25 +1,30 @@
 <template>
-  <div class="left-drawer__section__item" @click="setCurrentCommunityView">
+  <router-link
+    :to="{ name: 'channel', params: { channelId: channel.id }}"
+    class="left-drawer__section__item"
+  >
     <svg class="left-drawer__section__item--icon">
-      <use :href="require('../../../assets/icons/icons.svg') + setIcon"></use>
+      <use :href="require('../../../assets/icons/icons.svg') + setIcon" />
     </svg>
-    <p class="left-drawer__section__item--title">{{ title }}</p>
-  </div>
+    <p class="left-drawer__section__item--title">{{ channel.name }}</p>
+  </router-link>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import { useStore } from '@/store';
+import { Channel } from '@/store';
 
 export default defineComponent({
   props: {
-    title: String,
-    type: String as PropType<'feed' | 'channel' | undefined>,
+    channel: {
+      type: Object as PropType<Channel>,
+      required: true,
+    },
   },
   computed: {
     setIcon(): any {
       let icon;
-      switch (this.type?.toLowerCase()) {
+      switch (this.channel.type?.toLowerCase()) {
         case 'feed':
           icon = '#feed';
           break;
@@ -35,13 +40,9 @@ export default defineComponent({
   },
   methods: {
     setCurrentCommunityView(): void {
-      const store = useStore();
-      store.commit({
-        type: 'changeCommunityView',
-        value: {
-          name: this.title,
-          type: this.type,
-        },
+      this.$router.push({
+        name: 'channel',
+        params: { channelId: this.channel.id },
       });
     },
   },
@@ -49,6 +50,7 @@ export default defineComponent({
 </script>
 <style lang="scss">
 .left-drawer__section__item {
+  text-decoration: none;
   display: flex;
   align-items: center;
   margin-bottom: 1rem;

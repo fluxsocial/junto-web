@@ -1,30 +1,24 @@
 <template>
-  <div
+  <router-link
+    :to="{ name: 'community', params: { communityId: community.id }}"
     class="community-avatar"
-    @click="navToCommunity()"
     :style="avatarStyling"
   >
     <div class="community-avatar__name">
       <p class="community-avatar__name--text">{{ community.name }}</p>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import { useStore, Community } from '@/store';
+import { Community } from '@/store';
 
 export default defineComponent({
   props: {
     community: Object as PropType<Community>,
     profileImage: {
       default: require('@/assets/images/junto_app_icon.png'),
-    },
-  },
-  methods: {
-    navToCommunity() {
-      const store = useStore();
-      store.commit({ type: 'changeCommunity', value: this.community });
     },
   },
   computed: {
