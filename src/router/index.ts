@@ -21,8 +21,8 @@ const routes: Array<RouteRecordRaw> = [
         component: CommunityView,
         children: [
           {
-            path: 'channels/:channelId',
-            name: 'channel',
+            path: ':perspectiveId',
+            name: 'perspective',
             component: MainView,
           },
         ],
