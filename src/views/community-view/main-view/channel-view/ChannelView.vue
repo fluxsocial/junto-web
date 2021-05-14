@@ -87,7 +87,6 @@ export default defineComponent({
           i += 1;
         });
       });
-      console.log(list);
       return list;
     },
   },
