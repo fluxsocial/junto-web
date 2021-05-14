@@ -1,6 +1,6 @@
 <template>
   <router-link
-    :to="{ name: 'channel', params: { channelId: channel.id }}"
+    :to="{ name: 'perspective', params: { perspectiveId: channel.id }}"
     class="left-drawer__section__item"
   >
     <svg class="left-drawer__section__item--icon">
@@ -12,12 +12,12 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import { Channel } from '@/store';
+import { Perspective } from '@/store';
 
 export default defineComponent({
   props: {
     channel: {
-      type: Object as PropType<Channel>,
+      type: Object as PropType<Perspective>,
       required: true,
     },
   },
@@ -49,7 +49,15 @@ export default defineComponent({
 });
 </script>
 <style lang="scss">
+
+.router-link-exact-active  {
+  background:var(--junto-border-color);
+
+}
+
 .left-drawer__section__item {
+  padding: 4px 8px;
+  border-radius: 4px;
   text-decoration: none;
   display: flex;
   align-items: center;
