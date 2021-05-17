@@ -2,6 +2,10 @@ export function getChildren(id, perspectives) {
   return perspectives.filter((perspective) => perspective.parentId === id);
 }
 
+export function getTopLevelPerspectives(communityId, perspectives) {
+  return perspectives.filter((perspective) => perspective.parentId === communityId && perspective.type !== 'group');
+}
+
 export function generateGroups(perspectives) {
   return perspectives.reduce((acc, perspective) => {
     const isGroup = perspective.type === 'group';

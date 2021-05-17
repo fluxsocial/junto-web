@@ -5,6 +5,7 @@ export interface Perspective {
   id: string;
   name: string;
   type: string;
+  parentId: string;
 }
 
 export interface Community {
@@ -29,24 +30,27 @@ const store = createStore<State>({
     };
   },
   mutations: {
-    // navigate to a new community
-    changeCommunity(state, payload) {
-      state.currentCommunity = payload.value;
-    },
 
     createChannel(state, { channel, communityId }) {
       state.communities = state.communities.map((community) => {
         if (community.id === communityId) {
-          return { ...community, perspectives: [...community.perspectives, { ...channel }] };
+          return { ...community, perspectives: [...community.perspectives, { ...channel, id: Math.random().toString(36).substring(7) }] };
         } return community;
       });
+    },
+
+    createCommunity(state, payload) {
+      state.communities = [...state.communities, {
+        ...payload,
+        profileImage: require('@/assets/images/junto_app_icon.png'),
+      }];
     },
 
     createGroup(state, { name, communityId }: { name: string, communityId: string}) {
       state.communities = state.communities.map((community) => {
         if (community.id === communityId) {
           // TODO: Generate new ids
-          return { ...community, perspectives: [...community.perspectives, { id: '345kj345', name, type: 'group' }] };
+          return { ...community, perspectives: [...community.perspectives, { id: Math.random().toString(36).substring(7), name, type: 'group' }] };
         } return community;
       });
     },

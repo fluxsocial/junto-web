@@ -63,7 +63,6 @@ export default defineComponent({
     createChannel() {
       const store = useStore();
       const { communityId } = this.$route.params;
-      console.log('create channel');
       store.commit('createChannel', {
         channel: {
           id: '123123',

@@ -62,6 +62,9 @@ export default defineComponent({
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &:hover {
     cursor: pointer;
